@@ -28,7 +28,7 @@ export default function Hero() {
 
             {/* Foreground Text */}
             <span className="relative z-10 px-4 py-2 text-black dark:text-white">
-              WHERE BLOCKCHAIN MEETS THE REAL WORLD
+              WHERE INNOVATION MEETS THE REAL WORLD
             </span>
           </span>
         </h1>
