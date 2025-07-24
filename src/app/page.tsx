@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
+import ContactSection from "@/components/ContactSection"
 
 // Animated Background Components
 const GridBackground = () => (
@@ -331,165 +332,203 @@ const ProjectsSection = () => {
   )
 }
 
-// Contact Section with Web3Forms
-const ContactSection = () => {
-  const [status, setStatus] = useState(null)
-  const [loading, setLoading] = useState(false)
+// // Contact Section with Web3Forms
 
-  async function handleSubmit(event) {
-    event.preventDefault()
-    setLoading(true)
-    const formData = new FormData(event.target)
-    formData.append("access_key", "b439ca96-e064-42f2-819b-2f0ac2fd54a9")
+// export default function ContactSection() {
+//   const [formData, setFormData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     email: "",
+//     phone: "",
+//     message: "",
+//   });
 
-    const object = Object.fromEntries(formData)
-    const json = JSON.stringify(object)
+//   const [status, setStatus] = useState<string | null>(null);
+//   const [loading, setLoading] = useState(false);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: json,
-    })
+//   const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     setLoading(true);
+//     setStatus(null);
 
-    const result = await response.json()
-    setLoading(false)
-    if (result.success) {
-      setStatus("Message sent successfully!")
-      event.target.reset()
-    } else {
-      setStatus("Something went wrong. Please try again.")
-    }
-  }
+//     const response = await fetch("https://api.web3forms.com/submit", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Accept: "application/json",
+//       },
+//       body: JSON.stringify({
+//         access_key: "b439ca96-e064-42f2-819b-2f0ac2fd54a9",
+//         ...formData,
+//       }),
+//     });
 
-  return (
-    <section id="contact" className="relative py-20 bg-black overflow-hidden">
-      <ParticleBackground />
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.h2
-          className="text-5xl md:text-6xl font-thin text-white text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Contact
-        </motion.h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-thin text-white mb-6">Get In Touch</h3>
-            <p className="text-white/70 font-thin mb-8 leading-relaxed">
-              Ready to bring your vision to life? Let&apos;s discuss how we can craft something extraordinary together.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-white/60" />
-                <a href="mailto:devcrafter.help@gmail.com" className="text-white/80 font-thin hover:underline">
-                  devcrafter.help@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-white/60" />
-                <a href="tel:+919811058531" className="text-white/80 font-thin hover:underline">
-                  +91 9811058531
-                </a>
-                <a href="tel:+918459085768" className="text-white/80 font-thin hover:underline">
-                  +91 8459085768
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-white/60" />
-                <span className="text-white/80 font-thin">Delhi, India</span>
-              </div>
-            </div>
-            <div className="flex space-x-4 mt-8">
-              {[
-                { Icon: Github, href: "https://github.com/devcrafter" },
-                { Icon: Twitter, href: "https://twitter.com/devcrafter" },
-                { Icon: Linkedin, href: "https://linkedin.com/in/devcrafter" },
-              ].map(({ Icon, href }, index) => (
-                <motion.a
-                  key={index}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                >
-                  <Icon className="h-6 w-6" />
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+//     const result = await response.json();
+//     setLoading(false);
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input
-                  name="first_name"
-                  placeholder="First Name"
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin"
-                  required
-                />
-                <Input
-                  name="last_name"
-                  placeholder="Last Name"
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin"
-                  required
-                />
-              </div>
-                <Input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin"
-                required
-                />
-                <Input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin"
-                required
-                />
-                <Textarea
-                name="message"
-                placeholder="Tell us about your project..."
-                rows={5}
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin resize-none"
-                required
-                />
-              <Button type="submit" disabled={loading} className="w-full bg-white text-black hover:bg-white/90 font-thin py-3">
-                {loading ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-            {status && <p className="mt-4 text-center text-white/70">{status}</p>}
-          </motion.div>
-        </div>
-        <motion.div
-          className="border-t border-white/10 mt-20 pt-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center">
-            <p className="text-white/60 font-thin">© {new Date().getFullYear()} DevCrafter. All rights reserved.</p>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
+//     if (result.success) {
+//       setStatus("✅ Message sent successfully!");
+//       setFormData({
+//         firstName: "",
+//         lastName: "",
+//         email: "",
+//         phone: "",
+//         message: "",
+//       });
+//     } else {
+//       setStatus("❌ Something went wrong. Please try again.");
+//     }
+//   };
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   return (
+//     <section id="contact" className="relative py-20 bg-black overflow-hidden">
+//       <div className="container mx-auto px-4 relative z-10">
+//         <motion.h2
+//           className="text-5xl md:text-6xl font-thin text-white text-center mb-16"
+//           initial={{ opacity: 0, y: 50 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           viewport={{ once: true }}
+//         >
+//           Contact
+//         </motion.h2>
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+//           {/* Left Side - Contact Info */}
+//           <div>
+//             <h3 className="text-2xl font-thin text-white mb-6">Get In Touch</h3>
+//             <p className="text-white/70 font-thin mb-8 leading-relaxed">
+//               Ready to bring your vision to life? Let&apos;s discuss how we can
+//               craft something extraordinary together.
+//             </p>
+//             <div className="space-y-4">
+//               <div className="flex items-center space-x-3">
+//                 <Mail className="h-5 w-5 text-white/60" />
+//                 <a
+//                   href="mailto:devcrafter.help@gmail.com"
+//                   className="text-white/80 font-thin hover:underline"
+//                 >
+//                   devcrafter.help@gmail.com
+//                 </a>
+//               </div>
+//               <div className="flex items-center space-x-3">
+//                 <Phone className="h-5 w-5 text-white/60" />
+//                 <a
+//                   href="tel:+919811058531"
+//                   className="text-white/80 font-thin hover:underline"
+//                 >
+//                   +91 9811058531
+//                 </a>
+//                 <a
+//                   href="tel:+918459085768"
+//                   className="text-white/80 font-thin hover:underline"
+//                 >
+//                   +91 8459085768
+//                 </a>
+//               </div>
+//               <div className="flex items-center space-x-3">
+//                 <MapPin className="h-5 w-5 text-white/60" />
+//                 <span className="text-white/80 font-thin">Delhi, India</span>
+//               </div>
+//             </div>
+//             <div className="flex space-x-4 mt-8">
+//               {[
+//                 { Icon: Github, href: "https://github.com/devcrafter" },
+//                 { Icon: Twitter, href: "https://twitter.com/devcrafter" },
+//                 { Icon: Linkedin, href: "https://linkedin.com/in/devcrafter" },
+//               ].map(({ Icon, href }, index) => (
+//                 <motion.a
+//                   key={index}
+//                   href={href}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="text-white/60 hover:text-white transition-colors"
+//                   whileHover={{ scale: 1.2, y: -2 }}
+//                 >
+//                   <Icon className="h-6 w-6" />
+//                 </motion.a>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Right Side - Form */}
+//           <div>
+//             <form onSubmit={handleSubmit} className="space-y-6">
+//               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                 <input
+//                   name="firstName"
+//                   value={formData.firstName}
+//                   onChange={handleChange}
+//                   placeholder="First Name"
+//                   required
+//                   className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+//                 />
+//                 <input
+//                   name="lastName"
+//                   value={formData.lastName}
+//                   onChange={handleChange}
+//                   placeholder="Last Name"
+//                   required
+//                   className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+//                 />
+//               </div>
+//               <input
+//                 type="email"
+//                 name="email"
+//                 value={formData.email}
+//                 onChange={handleChange}
+//                 placeholder="Email"
+//                 required
+//                 className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+//               />
+//               <input
+//                 type="tel"
+//                 name="phone"
+//                 value={formData.phone}
+//                 onChange={handleChange}
+//                 placeholder="Phone Number"
+//                 pattern="[0-9+ ]{7,15}"
+//                 className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+//               />
+//               <textarea
+//                 name="message"
+//                 value={formData.message}
+//                 onChange={handleChange}
+//                 placeholder="Your Message"
+//                 rows={5}
+//                 required
+//                 className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full resize-none"
+//               />
+//               <button
+//                 type="submit"
+//                 disabled={loading}
+//                 className="w-full bg-white text-black hover:bg-white/90 font-thin py-3"
+//               >
+//                 {loading ? "Sending..." : "Send Message"}
+//               </button>
+//               {status && <p className="text-white/70 mt-2">{status}</p>}
+//             </form>
+//           </div>
+//         </div>
+
+//         {/* Footer */}
+//         <div className="border-t border-white/10 mt-20 pt-8">
+//           <div className="text-center">
+//             <p className="text-white/60 font-thin">
+//               © {new Date().getFullYear()} DevCrafter. All rights reserved.
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 
 // Main Component
 export default function DevCrafterWebsite() {
