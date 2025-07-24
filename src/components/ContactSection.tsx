@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-react";
+import ParticleBackground from "./backgrounds/ParticleBackground";
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -58,6 +60,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-20 bg-black overflow-hidden">
+      <ParticleBackground />
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
           className="text-5xl md:text-6xl font-thin text-white text-center mb-16"
