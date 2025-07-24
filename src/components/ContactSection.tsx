@@ -117,7 +117,7 @@ export default function Contact() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white transition-colors"
+                  className="p-3 bg-white/5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
                   whileHover={{ scale: 1.2, y: -2 }}
                 >
                   <Icon className="h-6 w-6" />
@@ -136,7 +136,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="First Name"
                   required
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
                 />
                 <input
                   name="lastName"
@@ -144,7 +144,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Last Name"
                   required
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
                 />
               </div>
               <input
@@ -154,7 +154,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
               />
               <input
                 type="tel"
@@ -163,7 +163,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Phone Number"
                 pattern="[0-9+ ]{7,15}"
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full"
+                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
               />
               <textarea
                 name="message"
@@ -172,12 +172,12 @@ export default function Contact() {
                 placeholder="Your Message"
                 rows={5}
                 required
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full resize-none"
+                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg resize-none"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-white text-black hover:bg-white/90 font-thin py-3"
+                className="w-full bg-white text-black hover:bg-white/90 font-thin py-3 rounded-lg"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
