@@ -44,7 +44,7 @@ const Navbar = () => {
         </div>
         <Button
           variant="outline"
-          className="border-white/20 text-white hover:bg-white hover:text-black"
+          className="border-white/20 text-gray-400 hover:bg-white hover:text-black"
         >
           Get Started
         </Button>
