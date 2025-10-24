@@ -1,6 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
-import { Code, Palette, Smartphone, Globe } from "lucide-react";
+import {
+  Code,
+  Palette,
+  Smartphone,
+  Globe,
+  Database,
+  Cloud,
+  ShieldCheck,
+  Rocket,
+} from "lucide-react";
 import ParticleBackground from "./backgrounds/ParticleBackground";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -10,25 +19,49 @@ const ServicesSection = () => {
       icon: <Code className="h-8 w-8" />,
       title: "Web Development",
       description:
-        "Custom web applications built with modern frameworks and best practices.",
+        "Custom websites and scalable web applications built with the latest frameworks and clean architecture.",
     },
     {
       icon: <Palette className="h-8 w-8" />,
       title: "UI/UX Design",
       description:
-        "Beautiful, intuitive interfaces that enhance user experience and engagement.",
+        "Elegant, user-focused interfaces designed to deliver seamless and engaging digital experiences.",
     },
     {
       icon: <Smartphone className="h-8 w-8" />,
-      title: "Mobile Apps",
+      title: "Mobile App Development",
       description:
-        "Native and cross-platform mobile applications for iOS and Android.",
+        "Cross-platform and native mobile apps that deliver performance and delight on both iOS and Android.",
     },
     {
       icon: <Globe className="h-8 w-8" />,
       title: "Digital Strategy",
       description:
-        "Comprehensive digital solutions tailored to your business objectives.",
+        "Comprehensive digital transformation strategies aligned with your business goals.",
+    },
+    {
+      icon: <Database className="h-8 w-8" />,
+      title: "Backend & API Development",
+      description:
+        "Robust, secure, and efficient backend systems with well-documented APIs for seamless integrations.",
+    },
+    {
+      icon: <Cloud className="h-8 w-8" />,
+      title: "Cloud Solutions & DevOps",
+      description:
+        "Cloud deployment, CI/CD pipelines, and infrastructure management on AWS, GCP, and Azure.",
+    },
+    {
+      icon: <ShieldCheck className="h-8 w-8" />,
+      title: "Security & Maintenance",
+      description:
+        "Ongoing support, monitoring, and security audits to keep your digital products reliable and safe.",
+    },
+    {
+      icon: <Rocket className="h-8 w-8" />,
+      title: "Startup MVP Development",
+      description:
+        "Fast, cost-effective MVPs that help startups validate ideas and attract early investors.",
     },
   ];
 

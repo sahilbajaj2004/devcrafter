@@ -1,10 +1,16 @@
 "use client";
-
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Twitter,
+  Linkedin,
+  ChevronDown,
+} from "lucide-react";
 import ParticleBackground from "./backgrounds/ParticleBackground";
-
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,11 +18,15 @@ export default function Contact() {
     lastName: "",
     email: "",
     phone: "",
+    projectType: "",
+    budget: "",
+    timeline: "",
     message: "",
   });
 
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [showGitDropdown, setShowGitDropdown] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +55,9 @@ export default function Contact() {
         lastName: "",
         email: "",
         phone: "",
+        projectType: "",
+        budget: "",
+        timeline: "",
         message: "",
       });
     } else {
@@ -53,7 +66,7 @@ export default function Contact() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -71,6 +84,7 @@ export default function Contact() {
         >
           Contact
         </motion.h2>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Left Side - Contact Info */}
           <div>
@@ -79,6 +93,7 @@ export default function Contact() {
               Ready to bring your vision to life? Let&apos;s discuss how we can
               craft something extraordinary together.
             </p>
+
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-white/60" />
@@ -109,27 +124,75 @@ export default function Contact() {
                 <span className="text-white/80 font-thin">Delhi, India</span>
               </div>
             </div>
-            <div className="flex space-x-4 mt-8">
-              {[
-                { Icon: Github, href: "https://github.com/devcrafter" },
-                { Icon: Twitter, href: "https://twitter.com/devcrafter" },
-                { Icon: Linkedin, href: "https://linkedin.com/in/devcrafter" },
-              ].map(({ Icon, href }, index) => (
-                <motion.a
-                  key={index}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-white/5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
-                  whileHover={{ scale: 1.2, y: -2 }}
+
+            {/* Socials */}
+            <div className="flex space-x-4 mt-8 relative">
+              {/* GitHub dropdown */}
+              <div className="relative">
+                <motion.button
+                  onClick={() => setShowGitDropdown(!showGitDropdown)}
+                  className="p-3 bg-white/5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1"
+                  whileHover={{ scale: 1.1 }}
                 >
-                  <Icon className="h-6 w-6" />
-                </motion.a>
-              ))}
+                  <Github className="h-6 w-6" />
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${showGitDropdown ? "rotate-180" : ""}`}
+                  />
+                </motion.button>
+
+                <AnimatePresence>
+                  {showGitDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute left-0 mt-3 bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-3 space-y-2 min-w-[180px]"
+                    >
+                      <a
+                        href="https://github.com/sahilbajaj2004"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-white/80 hover:text-white hover:bg-white/10 rounded-md px-3 py-2 text-sm"
+                      >
+                        Founder's GitHub
+                      </a>
+                      <a
+                        href="https://github.com/AdarshKumarSr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-white/80 hover:text-white hover:bg-white/10 rounded-md px-3 py-2 text-sm"
+                      >
+                        Co-Founder's GitHub
+                      </a>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* DevCrafter socials */}
+              <motion.a
+                href="https://twitter.com/devcrafter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+                whileHover={{ scale: 1.2, y: -2 }}
+              >
+                <Twitter className="h-6 w-6" />
+              </motion.a>
+
+              <motion.a
+                href="https://linkedin.com/in/devcrafter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+                whileHover={{ scale: 1.2, y: -2 }}
+              >
+                <Linkedin className="h-6 w-6" />
+              </motion.a>
             </div>
           </div>
 
-          {/* Right Side - Form */}
+          {/* Right Side - Extended Form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -139,7 +202,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="First Name"
                   required
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
+                  className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin"
                 />
                 <input
                   name="lastName"
@@ -147,9 +210,10 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Last Name"
                   required
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
+                  className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin"
                 />
               </div>
+
               <input
                 type="email"
                 name="email"
@@ -157,8 +221,9 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
+                className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin"
               />
+
               <input
                 type="tel"
                 name="phone"
@@ -166,24 +231,115 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Phone Number"
                 pattern="[0-9+ ]{7,15}"
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg"
+                className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin"
               />
+
+              <select
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleChange}
+                className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin"
+                required
+              >
+                <option value="" className="bg-black text-white/70">
+                  Select Project Type
+                </option>
+                <option value="web" className="bg-black text-white/90">
+                  Web Application
+                </option>
+                <option value="mobile" className="bg-black text-white/90">
+                  Mobile App
+                </option>
+                <option value="website" className="bg-black text-white/90">
+                  Portfolio / Company Site
+                </option>
+                <option value="ui-ux" className="bg-black text-white/90">
+                  UI/UX Design
+                </option>
+                <option value="digital-strategy" className="bg-black text-white/90">
+                  Digital Strategy
+                </option>
+                <option value="backend-api" className="bg-black text-white/90">
+                  Backend & API Development
+                </option>
+                <option value="cloud-devops" className="bg-black text-white/90">
+                  Cloud Solutions & DevOps
+                </option>
+                <option value="security-maintenance" className="bg-black text-white/90">
+                  Security & Maintenance
+                </option>
+                <option value="startup-mvp" className="bg-black text-white/90">
+                  Startup MVP Development
+                </option>
+                <option value="custom-software" className="bg-black text-white/90">
+                  Custom Software Solution
+                </option>
+              </select>
+
+              <select
+                name="budget"
+                value={formData.budget}
+                onChange={handleChange}
+                className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin"
+              >
+                <option value="" className="bg-black text-white/70">
+                  Budget Range (optional)
+                </option>
+                <option value="<500" className="bg-black text-white/90">
+                  &lt; ₹5000
+                </option>
+                <option value="500-1000" className="bg-black text-white/90">
+                  ₹5000 – ₹10,000
+                </option>
+                <option value="1000-5000" className="bg-black text-white/90">
+                  ₹10,000 – ₹25,000
+                </option>
+                <option value=">5000" className="bg-black text-white/90">
+                  &gt; ₹25,000
+                </option>
+              </select>
+
+              <select
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleChange}
+                className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin"
+              >
+                <option value="" className="bg-black text-white/70">
+                  Estimated Timeline
+                </option>
+                <option value="1-2 weeks" className="bg-black text-white/90">
+                  1–2 weeks
+                </option>
+                <option value="1 month" className="bg-black text-white/90">
+                  About 1 month
+                </option>
+                <option value="1-3 months" className="bg-black text-white/90">
+                  1–3 months
+                </option>
+                <option value="flexible" className="bg-black text-white/90">
+                  Flexible
+                </option>
+              </select>
+
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your Message"
+                placeholder="Describe your project or idea..."
                 rows={5}
                 required
-                className="bg-white/5 border-white/20 text-white placeholder:text-white/50 font-thin p-3 w-full rounded-lg resize-none"
+                className="w-full p-3 bg-black/90 border border-white/20 rounded-lg text-white/90 placeholder-white/60 focus:outline-none backdrop-blur-md appearance-none hover:bg-white/10 transition-colors font-thin resize-none"
               />
+
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-white text-black hover:bg-white/90 font-thin py-3 rounded-lg"
+                className="w-full bg-white text-black hover:bg-white/90 font-light py-3 rounded-lg transition-colors"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
+
               {status && <p className="text-white/70 mt-2">{status}</p>}
             </form>
           </div>

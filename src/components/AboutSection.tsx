@@ -16,16 +16,14 @@ const AboutSection = () => (
         <h2 className="text-5xl md:text-6xl font-thin text-gray-900 mb-8">
           About Us
         </h2>
-        <p className="text-xl text-gray-800 font-thin leading-relaxed mb-8">
-          We are a collective of digital artisans, dedicated to transforming
-          ideas into extraordinary digital experiences. Our approach combines
-          cutting-edge technology with timeless design principles to create
-          solutions that not only function flawlessly but inspire and engage.
+        <p className="text-xl text-gray-800 font-light leading-relaxed mb-8">
+          At DevCrafter, we are a team of passionate creators and engineers committed to transforming ideas into powerful digital solutions. We blend modern technologies with thoughtful design to build products that are not only functional but also memorable and impactful.
         </p>
-        <p className="text-lg text-gray-700 font-thin leading-relaxed">
-          From concept to deployment, we craft every pixel with purpose, every
-          interaction with intention, and every line of code with precision.
+
+        <p className="text-lg text-gray-700 font-light leading-relaxed">
+          From strategy to deployment, every element we craft — from interface to backend — is driven by precision, creativity, and purpose. Our mission is to help businesses scale through innovative, seamless, and user-centric digital experiences.
         </p>
+
       </motion.div>
     </div>
   </section>
