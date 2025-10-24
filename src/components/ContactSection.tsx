@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
@@ -27,6 +27,12 @@ export default function Contact() {
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [showGitDropdown, setShowGitDropdown] = useState(false);
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  // Set the current year on the client-side
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -348,9 +354,11 @@ export default function Contact() {
         {/* Footer */}
         <div className="border-t border-white/10 mt-20 pt-8">
           <div className="text-center">
-            <p className="text-white/60 font-thin">
-              © {new Date().getFullYear()} DevCrafter. All rights reserved.
-            </p>
+            {currentYear && (
+              <p className="text-white/60 font-thin">
+                © {currentYear} DevCrafter. All rights reserved.
+              </p>
+            )}
           </div>
         </div>
       </div>

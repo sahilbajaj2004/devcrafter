@@ -6,22 +6,25 @@ import { Button } from "@/components/ui/button";
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isClient, setIsClient] = useState(false); // Track if we are on the client
 
   useEffect(() => {
-    // Ensure the logic runs only on the client side
+    // Mark the component as client-side only
+    setIsClient(true);
+
     if (typeof window !== "undefined") {
       const handleScroll = () => {
         const currentScrollY = window.scrollY;
         setIsVisible(currentScrollY < lastScrollY || currentScrollY < 10);
         setLastScrollY(currentScrollY);
       };
+
       window.addEventListener("scroll", handleScroll, { passive: true });
 
       return () => window.removeEventListener("scroll", handleScroll);
     }
   }, [lastScrollY]);
 
-  // 🔹 Reusable scroll function for all nav items
   const handleScrollTo = (id: string) => {
     const target = document.getElementById(id);
     if (target) {
@@ -31,6 +34,9 @@ const Navbar = () => {
       window.location.hash = id;
     }
   };
+
+  // Ensure motion components are rendered only on the client side
+  if (!isClient) return null;
 
   return (
     <motion.nav
@@ -46,7 +52,6 @@ const Navbar = () => {
           DevCrafter
         </motion.div>
 
-        {/* 🔹 All nav items now scroll smoothly */}
         <div className="hidden md:flex space-x-8">
           {["About", "Services", "Projects", "Contact"].map((item) => {
             const id = item.toLowerCase();
@@ -63,7 +68,6 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* 🔹 Get Started also uses same handler */}
         <Button
           variant="outline"
           onClick={() => handleScrollTo("contact")}
