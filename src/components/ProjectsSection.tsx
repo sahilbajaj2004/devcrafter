@@ -8,7 +8,7 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: "Adarsh Kumar — Portfolio",
-      tag: "Featured",
+      tag: "Portfolio",
       description:
         "A refined React-based personal website that balances professional presentation with visual sophistication",
       image: "/adarsh.png",
@@ -16,23 +16,39 @@ const ProjectsSection = () => {
     },
     {
       title: "Sahil Bajaj — Portfolio",
-      tag: "Featured",
+      tag: "Portfolio",
       description:
         "An elegant Next.js portfolio with minimal design, smooth transitions, and sharp aesthetics that define a developer's digital identity.",
       image: "/sahil.png",
       link: "https://www.sahilbajaj.me/",
     },
     {
+      title: "IME College Website",
+      tag: "College",
+      description:
+        "A modern and responsive college website built with React, featuring comprehensive information architecture and seamless navigation for students and faculty.",
+      image: "/ime.png",
+      link: "https://imesahibabad.ac.in/",
+    },
+    {
       title: "BurrowAI",
-      tag: "Full Stack App",
+      tag: "Online pharmacy",
       description:
         "A robust full-stack application built with MERN and Flask, featuring secure authentication, real-time cart management, and services such as online medication purchasing, doctor appointment scheduling, and powered by an advanced AI model for enhanced user experience.",
       image: "/burrow.png",
       link: "https://burrow-3.onrender.com/",
     },
     {
+      title: "Prerna Institute",
+      tag: "Institute",
+      description:
+        "A modern and professional institute website built with React, showcasing academic programs, faculty expertise, and student resources with an intuitive and engaging user interface.",
+      image: "/prerna.png",
+      link: "https://prernainstitution.vercel.app/",
+    },
+    {
       title: "PiCommunity",
-      tag: "SaaS Platform",
+      tag: "Community Platform",
       description:
         "Pi Community is a vibrant developer hub fostering innovation through collaboration and continuous learning. We bring together diverse minds to mentor, experiment, and shape the future of technology, one line of code at a time.",
       image: "/pi.png",
