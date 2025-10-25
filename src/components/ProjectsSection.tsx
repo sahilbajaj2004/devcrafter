@@ -1,5 +1,5 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import GridBackground from "./backgrounds/GridBackground";
@@ -28,6 +28,7 @@ const ProjectsSection = () => {
       description:
         "A modern and responsive college website built with React, featuring comprehensive information architecture and seamless navigation for students and faculty.",
       image: "/ime.png",
+      
       link: "https://imesahibabad.ac.in/",
     },
     {
