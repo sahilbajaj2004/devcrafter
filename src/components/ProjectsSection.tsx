@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import GridBackground from "./backgrounds/GridBackground";
 
@@ -41,14 +41,40 @@ const ProjectsSection = () => {
   ];
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [hovered, setHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const scroll = (direction: "left" | "right") => {
+  const scrollToProject = (index: number) => {
     const container = scrollRef.current;
     if (!container) return;
-    const scrollAmount = direction === "left" ? -450 : 450;
-    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    const cardWidth = 460 + 32; // card width + gap
+    container.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+    setCurrentIndex(index);
   };
+
+  const nextProject = () => {
+    const newIndex = (currentIndex + 1) % projects.length;
+    scrollToProject(newIndex);
+  };
+
+  const prevProject = () => {
+    const newIndex = (currentIndex - 1 + projects.length) % projects.length;
+    scrollToProject(newIndex);
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = 460 + 32;
+      const index = Math.round(scrollLeft / cardWidth);
+      setCurrentIndex(index);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
@@ -80,11 +106,7 @@ const ProjectsSection = () => {
         </motion.p>
 
         {/* Smooth Scroll Section */}
-        <div
-          className="relative"
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
+        <div className="relative">
           <motion.div
             ref={scrollRef}
             className="flex overflow-x-auto gap-8 pb-8 px-4 snap-x snap-mandatory no-scrollbar scroll-smooth"
@@ -104,55 +126,72 @@ const ProjectsSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                    <div 
-                      className="relative overflow-hidden h-[280px] bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                      style={{
-                        backgroundImage: `url(${
-                          typeof project.image === "string"
-                            ? project.image
-                            : (project.image as Record<string, unknown>)?.src || "/placeholder.svg"
-                        })`
-                      }}
-                    >
-                      {project.tag && (
-                        <span className="absolute top-3 left-3 bg-white/90 text-gray-800 text-xs px-3 py-1 rounded-full font-medium shadow">
-                          {project.tag}
-                        </span>
-                      )}
-                      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
-                        <div className="text-center text-white">
-                          <h3 className="text-2xl font-light mb-3">
-                            {project.title}
-                          </h3>
-                          <p className="text-white/85 text-sm leading-relaxed font-thin">
-                            {project.description}
-                          </p>
-                        </div>
+                  <div
+                    className="relative overflow-hidden h-[280px] bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    style={{
+                      backgroundImage: `url(${
+                        typeof project.image === "string"
+                          ? project.image
+                          : (project.image as Record<string, unknown>)?.src ||
+                            "/placeholder.svg"
+                      })`,
+                    }}
+                  >
+                    {project.tag && (
+                      <span className="absolute top-3 left-3 bg-white/90 text-gray-800 text-xs px-3 py-1 rounded-full font-medium shadow">
+                        {project.tag}
+                      </span>
+                    )}
+                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+                      <div className="text-center text-white">
+                        <h3 className="text-2xl font-light mb-3">
+                          {project.title}
+                        </h3>
+                        <p className="text-white/85 text-sm leading-relaxed font-thin">
+                          {project.description}
+                        </p>
                       </div>
                     </div>
+                  </div>
                 </a>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Arrows */}
-          <button
-            onClick={() => scroll("left")}
-            className={`absolute top-1/2 left-3 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full shadow-md transition-all duration-500 ${
-              hovered ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <ChevronLeft className="text-gray-800 w-6 h-6" />
-          </button>
+          {/* Navigation Buttons and Dots */}
+          <div className="flex justify-center items-center gap-6 mt-8">
+            <button
+              onClick={prevProject}
+              className="bg-gray-800/10 hover:bg-gray-800/20 backdrop-blur-md p-3 rounded-full shadow-md transition-all duration-300 group"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="text-gray-800 w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+            </button>
 
-          <button
-            onClick={() => scroll("right")}
-            className={`absolute top-1/2 right-3 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full shadow-md transition-all duration-500 ${
-              hovered ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <ChevronRight className="text-gray-800 w-6 h-6" />
-          </button>
+            {/* Dots Indicator */}
+            <div className="flex gap-2">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToProject(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "w-8 bg-gray-800"
+                      : "w-2 bg-gray-800/30 hover:bg-gray-800/50"
+                  }`}
+                  aria-label={`Go to project ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextProject}
+              className="bg-gray-800/10 hover:bg-gray-800/20 backdrop-blur-md p-3 rounded-full shadow-md transition-all duration-300 group"
+              aria-label="Next project"
+            >
+              <ChevronRight className="text-gray-800 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

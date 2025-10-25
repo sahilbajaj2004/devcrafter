@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function DevCrafterWebsite() {
   return (
@@ -13,6 +14,7 @@ export default function DevCrafterWebsite() {
       <AboutSection />
       <ServicesSection />
       <ProjectsSection />
+      <TestimonialsSection />
       <ContactSection />
     </div>
   );
