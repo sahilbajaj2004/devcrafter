@@ -1,6 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import GridBackground from "./backgrounds/GridBackground";
 
@@ -40,41 +40,19 @@ const ProjectsSection = () => {
     },
   ];
 
-  const scrollRef = useRef<HTMLDivElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const scrollToProject = (index: number) => {
-    const container = scrollRef.current;
-    if (!container) return;
-    const cardWidth = 460 + 32; // card width + gap
-    container.scrollTo({ left: index * cardWidth, behavior: "smooth" });
-    setCurrentIndex(index);
-  };
-
   const nextProject = () => {
-    const newIndex = (currentIndex + 1) % projects.length;
-    scrollToProject(newIndex);
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
 
   const prevProject = () => {
-    const newIndex = (currentIndex - 1 + projects.length) % projects.length;
-    scrollToProject(newIndex);
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = 460 + 32;
-      const index = Math.round(scrollLeft / cardWidth);
-      setCurrentIndex(index);
-    };
-
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+  const getProjectIndex = (offset: number) => {
+    return (currentIndex + offset + projects.length) % projects.length;
+  };
 
   return (
     <section
@@ -105,61 +83,107 @@ const ProjectsSection = () => {
           blend of creativity, precision, and innovation.
         </motion.p>
 
-        {/* Smooth Scroll Section */}
-        <div className="relative">
-          <motion.div
-            ref={scrollRef}
-            className="flex overflow-x-auto gap-8 pb-8 px-4 snap-x snap-mandatory no-scrollbar scroll-smooth"
-            whileInView={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="min-w-[340px] md:min-w-[420px] lg:min-w-[460px] snap-center group relative cursor-pointer rounded-2xl overflow-hidden shadow-xl bg-white/10 backdrop-blur-lg border border-white/10 hover:border-white/30 transition-all duration-700 ease-out"
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+        {/* Carousel with Center Focus */}
+        <div className="relative max-w-7xl mx-auto">
+          <div className="flex items-center justify-center gap-4 md:gap-8 px-4">
+            {/* Left Card (Previous) */}
+            <motion.div
+              key={`left-${getProjectIndex(-1)}`}
+              initial={{ opacity: 0, scale: 0.75, x: -50 }}
+              animate={{ opacity: 0.6, scale: 0.85, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="hidden md:block w-[350px] lg:w-[380px] cursor-pointer"
+              onClick={prevProject}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all">
+                <div
+                  className="h-[240px] lg:h-[260px] bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${
+                      projects[getProjectIndex(-1)].image
+                    })`,
+                  }}
                 >
-                  <div
-                    className="relative overflow-hidden h-[280px] bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    style={{
-                      backgroundImage: `url(${
-                        typeof project.image === "string"
-                          ? project.image
-                          : (project.image as Record<string, unknown>)?.src ||
-                            "/placeholder.svg"
-                      })`,
-                    }}
-                  >
-                    {project.tag && (
-                      <span className="absolute top-3 left-3 bg-white/90 text-gray-800 text-xs px-3 py-1 rounded-full font-medium shadow">
-                        {project.tag}
-                      </span>
-                    )}
-                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
-                      <div className="text-center text-white">
-                        <h3 className="text-2xl font-light mb-3">
-                          {project.title}
-                        </h3>
-                        <p className="text-white/85 text-sm leading-relaxed font-thin">
-                          {project.description}
-                        </p>
-                      </div>
+                  <div className="absolute inset-0 bg-black/30" />
+                  {projects[getProjectIndex(-1)].tag && (
+                    <span className="absolute top-2 left-2 bg-white/90 text-gray-800 text-xs px-2 py-1 rounded-full font-medium shadow">
+                      {projects[getProjectIndex(-1)].tag}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Center Card (Current/Featured) */}
+            <motion.div
+              key={`center-${currentIndex}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0 }}
+              className="w-[340px] md:w-[480px] lg:w-[560px] group relative cursor-pointer rounded-2xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:border-white/30 transition-all duration-700"
+              whileHover={{ y: -10, scale: 1.02 }}
+            >
+              <a
+                href={projects[currentIndex].link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div
+                  className="relative overflow-hidden h-[280px] md:h-[350px] bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  style={{
+                    backgroundImage: `url(${projects[currentIndex].image})`,
+                  }}
+                >
+                  {projects[currentIndex].tag && (
+                    <span className="absolute top-3 left-3 bg-white/90 text-gray-800 text-xs px-3 py-1 rounded-full font-medium shadow">
+                      {projects[currentIndex].tag}
+                    </span>
+                  )}
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+                    <div className="text-center text-white">
+                      <h3 className="text-2xl md:text-3xl font-light mb-3">
+                        {projects[currentIndex].title}
+                      </h3>
+                      <p className="text-white/85 text-sm md:text-base leading-relaxed font-thin">
+                        {projects[currentIndex].description}
+                      </p>
                     </div>
                   </div>
-                </a>
-              </motion.div>
-            ))}
-          </motion.div>
+                </div>
+              </a>
+            </motion.div>
+
+            {/* Right Card (Next) */}
+            <motion.div
+              key={`right-${getProjectIndex(1)}`}
+              initial={{ opacity: 0, scale: 0.75, x: 50 }}
+              animate={{ opacity: 0.6, scale: 0.85, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="hidden md:block w-[350px] lg:w-[380px] cursor-pointer"
+              onClick={nextProject}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all">
+                <div
+                  className="h-[240px] lg:h-[260px] bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${
+                      projects[getProjectIndex(1)].image
+                    })`,
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/30" />
+                  {projects[getProjectIndex(1)].tag && (
+                    <span className="absolute top-2 left-2 bg-white/90 text-gray-800 text-xs px-2 py-1 rounded-full font-medium shadow">
+                      {projects[getProjectIndex(1)].tag}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
           {/* Navigation Buttons and Dots */}
-          <div className="flex justify-center items-center gap-6 mt-8">
+          <div className="flex justify-center items-center gap-6 mt-12">
             <button
               onClick={prevProject}
               className="bg-gray-800/10 hover:bg-gray-800/20 backdrop-blur-md p-3 rounded-full shadow-md transition-all duration-300 group"
@@ -173,7 +197,7 @@ const ProjectsSection = () => {
               {projects.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => scrollToProject(index)}
+                  onClick={() => setCurrentIndex(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
                       ? "w-8 bg-gray-800"
