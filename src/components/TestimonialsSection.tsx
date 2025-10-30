@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
       role: "Product Manager, CloudFlow",
       content:
         "The level of craftsmanship and innovation DevCrafter brought to our project was phenomenal. They understood our requirements perfectly and delivered beyond our expectations.",
-      image: "/testimonials/anjali.jpg",
+      image: "/anjali.jpg",
       rating: 5,
     },
     {
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
       role: "CTO, DataSync Solutions",
       content:
         "DevCrafter's technical prowess and design sensibility are unmatched. They built a scalable backend system that handles millions of requests seamlessly. Exceptional work!",
-      image: "/testimonials/vikram.jpg",
+      image: "/vikram.jpg",
       rating: 5,
     },
     {
@@ -44,7 +44,7 @@ const TestimonialsSection = () => {
       role: "Marketing Director, BrandCraft",
       content:
         "Our website redesign by DevCrafter not only looks beautiful but also increased our conversion rates by 40%. Their strategic approach to design is truly impressive.",
-      image: "/testimonials/neha.jpg",
+      image: "/neha.jpg",
       rating: 5,
     },
   ];

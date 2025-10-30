@@ -40,16 +40,17 @@ export default function Contact() {
     setStatus(null);
 
     const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "b439ca96-e064-42f2-819b-2f0ac2fd54a9",
-        ...formData,
-      }),
-    });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+    ...formData,
+  }),
+});
+
 
     const result = await response.json();
     setLoading(false);
