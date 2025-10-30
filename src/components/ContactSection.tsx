@@ -108,7 +108,7 @@ export default function Contact() {
                   href="mailto:devcrafter.help@gmail.com"
                   className="text-white/80 font-thin hover:underline"
                 >
-                  devcrafter.help@gmail.com
+                  devssober@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -357,7 +357,7 @@ export default function Contact() {
           <div className="text-center">
             {currentYear && (
               <p className="text-white/60 font-thin">
-                © {currentYear} DevCrafter. All rights reserved.
+                © {currentYear} SoberDevs. All rights reserved.
               </p>
             )}
           </div>
