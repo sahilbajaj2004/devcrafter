@@ -40,16 +40,17 @@ export default function Contact() {
     setStatus(null);
 
     const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "b439ca96-e064-42f2-819b-2f0ac2fd54a9",
-        ...formData,
-      }),
-    });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+    ...formData,
+  }),
+});
+
 
     const result = await response.json();
     setLoading(false);
@@ -109,7 +110,11 @@ export default function Contact() {
                   href="mailto:soberdev.help@gmail.com"
                   className="text-white/80 font-thin hover:underline"
                 >
+<<<<<<< HEAD
                   soberdev.help@gmail.com
+=======
+                  devssober@gmail.com
+>>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -416,7 +421,11 @@ export default function Contact() {
           <div className="text-center">
             {currentYear && (
               <p className="text-white/60 font-thin">
+<<<<<<< HEAD
                 © {currentYear} SoberDev. All rights reserved.
+=======
+                © {currentYear} SoberDevs. All rights reserved.
+>>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
               </p>
             )}
           </div>

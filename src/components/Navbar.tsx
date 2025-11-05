@@ -49,7 +49,11 @@ const Navbar = () => {
           className="text-2xl font-thin text-white"
           whileHover={{ scale: 1.05 }}
         >
+<<<<<<< HEAD
           SoberDev
+=======
+          SoberDevs
+>>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
         </motion.div>
 
         <div className="hidden md:flex space-x-8">

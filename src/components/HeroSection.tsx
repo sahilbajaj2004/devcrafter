@@ -36,7 +36,11 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
+<<<<<<< HEAD
           SoberDev
+=======
+          SoberDevs
+>>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
         </motion.h1>
 
         {/* Typing tagline */}
