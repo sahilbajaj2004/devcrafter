@@ -11,7 +11,7 @@ const TestimonialsSection = () => {
       name: "Sahil Gupta",
       role: "Founder, Varchasv institute",
       content:
-        "DevCrafter transformed our vision into a stunning digital reality. Their attention to detail and technical expertise exceeded all expectations. The team's professionalism and dedication truly set them apart.",
+        "SoberDev transformed our vision into a stunning digital reality. Their attention to detail and technical expertise exceeded all expectations. The team's professionalism and dedication truly set them apart.",
       image: "/SahilGupta.jpg",
       rating: 5,
     },
@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
       name: "Bhumit Rajotiya",
       role: "Founder, StartupHub",
       content:
-        "Working with DevCrafter was an absolute game-changer for our startup. They delivered a flawless MVP that helped us secure our seed funding. Highly recommend their services!",
+        "Working with SoberDev was an absolute game-changer for our startup. They delivered a flawless MVP that helped us secure our seed funding. Highly recommend their services!",
       image: "/BhumitRajotiya.jpg",
       rating: 5,
     },
@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
       name: "Anjali Verma",
       role: "Product Manager, CloudFlow",
       content:
-        "The level of craftsmanship and innovation DevCrafter brought to our project was phenomenal. They understood our requirements perfectly and delivered beyond our expectations.",
+        "The level of craftsmanship and innovation SoberDev brought to our project was phenomenal. They understood our requirements perfectly and delivered beyond our expectations.",
       image: "/testimonials/anjali.jpg",
       rating: 5,
     },
@@ -35,7 +35,7 @@ const TestimonialsSection = () => {
       name: "Vikram Singh",
       role: "CTO, DataSync Solutions",
       content:
-        "DevCrafter's technical prowess and design sensibility are unmatched. They built a scalable backend system that handles millions of requests seamlessly. Exceptional work!",
+        "SoberDev's technical prowess and design sensibility are unmatched. They built a scalable backend system that handles millions of requests seamlessly. Exceptional work!",
       image: "/testimonials/vikram.jpg",
       rating: 5,
     },
@@ -43,7 +43,7 @@ const TestimonialsSection = () => {
       name: "Neha Kapoor",
       role: "Marketing Director, BrandCraft",
       content:
-        "Our website redesign by DevCrafter not only looks beautiful but also increased our conversion rates by 40%. Their strategic approach to design is truly impressive.",
+        "Our website redesign by SoberDev not only looks beautiful but also increased our conversion rates by 40%. Their strategic approach to design is truly impressive.",
       image: "/testimonials/neha.jpg",
       rating: 5,
     },

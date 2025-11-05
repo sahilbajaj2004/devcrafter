@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://devcrafter.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.vercel.app";
 
   return {
     rules: {

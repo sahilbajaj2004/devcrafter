@@ -17,13 +17,18 @@ const AboutSection = () => (
           About Us
         </h2>
         <p className="text-xl text-gray-800 font-light leading-relaxed mb-8">
-          At DevCrafter, we are a team of passionate creators and engineers committed to transforming ideas into powerful digital solutions. We blend modern technologies with thoughtful design to build products that are not only functional but also memorable and impactful.
+          At SoberDev, we are a team of passionate creators and engineers
+          committed to transforming ideas into powerful digital solutions. We
+          blend modern technologies with thoughtful design to build products
+          that are not only functional but also memorable and impactful.
         </p>
 
         <p className="text-lg text-gray-700 font-light leading-relaxed">
-          From strategy to deployment, every element we craft — from interface to backend — is driven by precision, creativity, and purpose. Our mission is to help businesses scale through innovative, seamless, and user-centric digital experiences.
+          From strategy to deployment, every element we craft — from interface
+          to backend — is driven by precision, creativity, and purpose. Our
+          mission is to help businesses scale through innovative, seamless, and
+          user-centric digital experiences.
         </p>
-
       </motion.div>
     </div>
   </section>

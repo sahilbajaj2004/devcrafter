@@ -6,7 +6,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
-export default function DevCrafterWebsite() {
+export default function SoberDevWebsite() {
   return (
     <div className="min-h-screen">
       <Navbar />

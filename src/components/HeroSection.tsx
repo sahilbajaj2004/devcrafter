@@ -6,14 +6,12 @@ import GridBackground from "./backgrounds/GridBackground";
 import ParticleBackground from "./backgrounds/ParticleBackground";
 import { useEffect, useState } from "react";
 
-
-
-
 const HeroSection = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const [text, setText] = useState("");
-  const fullText = "We provide powerful software solutions to help your business grow.";
+  const fullText =
+    "We provide powerful software solutions to help your business grow.";
 
   // Typing animation for tagline
   useEffect(() => {
@@ -38,7 +36,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          DevCrafter
+          SoberDev
         </motion.h1>
 
         {/* Typing tagline */}
@@ -59,7 +57,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          Crafting digital experiences that push boundaries and redefine possibilities.
+          Crafting digital experiences that push boundaries and redefine
+          possibilities.
         </motion.p>
 
         {/* CTA Button */}
@@ -78,7 +77,6 @@ const HeroSection = () => {
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform inline-block" />
             </a>
           </Button>
-
         </motion.div>
       </motion.div>
     </section>

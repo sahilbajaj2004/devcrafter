@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const raw =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://devcrafter.vercel.app";
+  const raw = process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.vercel.app";
   const siteUrl = raw.replace(/\/$/, "");
 
   return [

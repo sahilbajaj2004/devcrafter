@@ -49,7 +49,7 @@ const Navbar = () => {
           className="text-2xl font-thin text-white"
           whileHover={{ scale: 1.05 }}
         >
-          DevCrafter
+          SoberDev
         </motion.div>
 
         <div className="hidden md:flex space-x-8">
