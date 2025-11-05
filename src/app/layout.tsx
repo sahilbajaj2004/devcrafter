@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     template: "%s | SoberDev",
   },
   description:
-    "Crafting digital experiences that push boundaries and redefine possibilities. Modern web development, UI/UX design, and digital strategy.",
+    "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities. Modern web development, UI/UX design, and digital strategy.",
   keywords:
-    "web development, UI/UX design, digital agency, mobile apps, digital strategy, frontend, backend, product design, SaaS",
+    "soberdev, better experiences, web development, UI/UX design, digital agency, mobile apps, digital strategy, frontend, backend, product design, SaaS, React, Next.js, TypeScript, Tailwind CSS, accessibility, performance optimization, PWA, e-commerce, API development, cloud, DevOps, prototyping, user research, SEO, content strategy, branding, animation, serverless, headless CMS, GraphQL, Node.js, JavaScript, HTML, CSS",
   authors: [{ name: "SoberDev" }],
   category: "technology",
   referrer: "origin-when-cross-origin",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SoberDev - Digital Agency",
     description:
-      "Crafting digital experiences that push boundaries and redefine possibilities.",
+      "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities.",
     type: "website",
     url: "/",
     siteName: "SoberDev",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SoberDev - Digital Agency",
     description:
-      "Crafting digital experiences that push boundaries and redefine possibilities.",
+      "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities.",
     images: ["/soberdev.jpg"],
   },
   icons: {
