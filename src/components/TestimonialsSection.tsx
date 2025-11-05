@@ -27,39 +27,24 @@ const TestimonialsSection = () => {
       name: "Anjali Verma",
       role: "Product Manager, CloudFlow",
       content:
-<<<<<<< HEAD
         "The level of craftsmanship and innovation SoberDev brought to our project was phenomenal. They understood our requirements perfectly and delivered beyond our expectations.",
       image: "/testimonials/anjali.jpg",
-=======
-        "The level of craftsmanship and innovation DevCrafter brought to our project was phenomenal. They understood our requirements perfectly and delivered beyond our expectations.",
-      image: "/anjali.jpg",
->>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
       rating: 5,
     },
     {
       name: "Vikram Singh",
       role: "CTO, DataSync Solutions",
       content:
-<<<<<<< HEAD
         "SoberDev's technical prowess and design sensibility are unmatched. They built a scalable backend system that handles millions of requests seamlessly. Exceptional work!",
       image: "/testimonials/vikram.jpg",
-=======
-        "DevCrafter's technical prowess and design sensibility are unmatched. They built a scalable backend system that handles millions of requests seamlessly. Exceptional work!",
-      image: "/vikram.jpg",
->>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
       rating: 5,
     },
     {
       name: "Neha Kapoor",
       role: "Marketing Director, BrandCraft",
       content:
-<<<<<<< HEAD
         "Our website redesign by SoberDev not only looks beautiful but also increased our conversion rates by 40%. Their strategic approach to design is truly impressive.",
       image: "/testimonials/neha.jpg",
-=======
-        "Our website redesign by DevCrafter not only looks beautiful but also increased our conversion rates by 40%. Their strategic approach to design is truly impressive.",
-      image: "/neha.jpg",
->>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
       rating: 5,
     },
   ];

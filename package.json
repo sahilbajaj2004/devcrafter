@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "soberdev",
-=======
-  "name": "soberdevs",
->>>>>>> 643596fea5bdc5c2eb93355441f7fe73a4ce4be1
   "version": "0.1.0",
   "private": true,
   "scripts": {
