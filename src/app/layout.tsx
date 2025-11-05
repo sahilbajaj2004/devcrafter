@@ -10,7 +10,7 @@ const inter = Inter({
 
 // Prefer using a canonical site URL if provided; fallback to production URL
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://soberdevS.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
