@@ -1,11 +1,16 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque, Syne } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-bricolage",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
 });
 
 // Prefer using a canonical site URL if provided; fallback to production URL
@@ -63,7 +68,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={`${bricolage.variable} ${syne.variable} font-sans antialiased bg-black`}>
+        <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] noise" />
         {children}
         {/* Basic JSON-LD for Organization */}
         <script
