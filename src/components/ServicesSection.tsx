@@ -16,93 +16,69 @@ import { Card, CardContent } from "@/components/ui/card";
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Code className="h-8 w-8" />,
-      title: "Web Development",
+      icon: <Code className="h-6 w-6" />,
+      title: "Web Platforms",
       description:
-        "Custom websites and scalable web applications built with the latest frameworks and clean architecture.",
+        "High-performance digital products built with React, Next.js, and cutting-edge engineering.",
     },
     {
-      icon: <Palette className="h-8 w-8" />,
-      title: "UI/UX Design",
+      icon: <Palette className="h-6 w-6" />,
+      title: "Experience Design",
       description:
-        "Elegant, user-focused interfaces designed to deliver seamless and engaging digital experiences.",
+        "Distinctive UI/UX that prioritizes character, motion, and emotional connection.",
     },
     {
-      icon: <Smartphone className="h-8 w-8" />,
-      title: "Mobile App Development",
+      icon: <Smartphone className="h-6 w-6" />,
+      title: "Native Apps",
       description:
-        "Cross-platform and native mobile apps that deliver performance and delight on both iOS and Android.",
+        "Seamless mobile experiences that leverage the full potential of iOS and Android.",
     },
     {
-      icon: <Globe className="h-8 w-8" />,
-      title: "Digital Strategy",
+      icon: <Globe className="h-6 w-6" />,
+      title: "Cloud Architecture",
       description:
-        "Comprehensive digital transformation strategies aligned with your business goals.",
-    },
-    {
-      icon: <Database className="h-8 w-8" />,
-      title: "Backend & API Development",
-      description:
-        "Robust, secure, and efficient backend systems with well-documented APIs for seamless integrations.",
-    },
-    {
-      icon: <Cloud className="h-8 w-8" />,
-      title: "Cloud Solutions & DevOps",
-      description:
-        "Cloud deployment, CI/CD pipelines, and infrastructure management on AWS, GCP, and Azure.",
-    },
-    {
-      icon: <ShieldCheck className="h-8 w-8" />,
-      title: "Security & Maintenance",
-      description:
-        "Ongoing support, monitoring, and security audits to keep your digital products reliable and safe.",
-    },
-    {
-      icon: <Rocket className="h-8 w-8" />,
-      title: "Startup MVP Development",
-      description:
-        "Fast, cost-effective MVPs that help startups validate ideas and attract early investors.",
+        "Scalable, resilient infrastructure designed for modern traffic and high availability.",
     },
   ];
 
   return (
-    <section id="services" className="relative py-20 bg-black overflow-hidden">
-      <ParticleBackground />
+    <section id="services" className="relative py-32 bg-black overflow-hidden noise">
       <div className="container mx-auto px-4 relative z-10">
-        <motion.h2
-          className="text-5xl md:text-6xl font-thin text-white text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Services
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="max-w-2xl">
+            <h2 className="text-sm uppercase tracking-[0.3em] text-indigo-500 font-bold mb-4">
+              Capabilities
+            </h2>
+            <h3 className="text-5xl md:text-7xl font-display font-bold text-white leading-[0.9]">
+              SOLUTIONS THAT <br /> SCALE REALITY.
+            </h3>
+          </div>
+          <p className="text-white/40 max-w-sm text-sm font-light">
+            We don't just build features. We architect digital systems that empower your vision and define your industry.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-white/10">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="group p-8 border-b md:border-r border-white/10 hover:bg-white/[0.02] transition-colors relative overflow-hidden"
             >
-              <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300 group">
-                <CardContent className="p-6 text-center">
-                  <motion.div
-                    className="text-white mb-4 flex justify-center"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
-                    {service.icon}
-                  </motion.div>
-                  <h3 className="text-xl font-thin text-white mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/70 font-thin text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="absolute top-0 left-0 w-full h-1 bg-indigo-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              
+              <div className="text-white mb-8 group-hover:text-indigo-500 transition-colors duration-500">
+                {service.icon}
+              </div>
+              <h4 className="text-2xl font-display font-bold text-white mb-4">
+                {service.title}
+              </h4>
+              <p className="text-white/50 font-light text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-500">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>
