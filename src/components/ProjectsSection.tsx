@@ -7,42 +7,48 @@ const ProjectsSection = () => {
     {
       title: "ADARSH KUMAR",
       tag: "IDENTITY / PORTFOLIO",
-      description: "Visual sophistication for the modern professional.",
+      description:
+        "Portfolio site to showcase full-stack work, resume, and contact flow. Optimized for fast load and clear hiring visibility. Stack: React, Tailwind CSS.",
       image: "/adarsh.png",
       link: "https://portfolio-e7gt.onrender.com/",
     },
     {
       title: "SAHIL BAJAJ",
       tag: "DIGITAL PRESENCE",
-      description: "Minimal aesthetics meets sharp digital identity.",
+      description:
+        "Personal portfolio for a full-stack developer to consolidate projects and skills. Clean navigation with a conversion-focused contact path. Stack: Next.js, Tailwind CSS.",
       image: "/sahil.png",
       link: "https://www.sahilbajaj.me/",
     },
     {
-      title: "AlgoAnalyer",
+      title: "AlgoAnalyzer",
       tag: "EDUCATION PLATFORM",
-      description: "Seamless navigation for the next generation.",
+      description:
+        "Algorithm practice platform with a focused learning flow. Built responsive UI and clear problem navigation for students. Stack: Next.js, Tailwind CSS.",
       image: "/algo.png",
       link: "https://algo-analyzer.vercel.app/",
     },
     {
       title: "BURROW AI",
       tag: "E-COMMERCE / AI",
-      description: "Intelligent healthcare at your fingertips.",
+      description:
+        "Healthcare-focused storefront with product discovery and detail pages. Designed for trust, clarity, and conversion. Stack: React, Tailwind CSS.",
       image: "/burrow.png",
       link: "https://burrow-3.onrender.com/",
     },
     {
       title: "PRERNA",
       tag: "ACADEMIC PORTAL",
-      description: "Empowering students through intuitive design.",
+      description:
+        "Academic portal for an institute to present programs and updates. Clear navigation and admissions-first layout. Stack: Next.js, Tailwind CSS.",
       image: "/prerna.png",
       link: "https://prernainstitution.vercel.app/",
     },
     {
       title: "PI COMMUNITY",
       tag: "DEVELOPER HUB",
-      description: "Fostering innovation through collaboration.",
+      description:
+        "Developer community hub for resources, updates, and events. Built to scale content and keep users engaged. Stack: React, Tailwind CSS.",
       image: "/pi.png",
       link: "https://picommunity.vercel.app/",
     },

@@ -27,18 +27,56 @@ const AboutSection = () => (
           viewport={{ once: true }}
         >
           <p className="text-2xl text-white/80 font-light leading-tight">
-            At SoberDev, we are a team of passionate creators and engineers
-            committed to transforming ideas into powerful digital solutions.
+            We are a two-person studio in Delhi building fast, reliable web
+            products for startups and small businesses.
           </p>
           <p className="text-lg text-white/50 font-light leading-relaxed">
-            From strategy to deployment, every element we craft — from interface
-            to backend — is driven by precision, creativity, and purpose. Our
-            mission is to help businesses scale through innovative, seamless, and
-            user-centric digital experiences.
+            You get a working product, not a design that never ships. We handle
+            design, development, and deployment end to end with direct
+            communication and zero agency fluff. If you need a web developer in
+            Delhi or a partner for website development in Delhi, we can help.
           </p>
           
           <div className="pt-4">
             <div className="w-20 h-1 bg-indigo-500" />
+          </div>
+
+          <div className="pt-8">
+            <h4 className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-bold mb-6">
+              Who builds this
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="border border-white/10 p-6">
+                <p className="text-white font-bold text-sm tracking-wide">Sahil Bajaj</p>
+                <p className="text-indigo-500/70 text-[10px] uppercase tracking-widest font-bold">Co-Founder</p>
+                <p className="text-white/60 text-sm font-light mt-3">
+                  Full-stack developer focused on shipping clean, scalable products for founders and small teams.
+                </p>
+                <a
+                  href="https://github.com/sahilbajaj2004"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 text-[10px] uppercase tracking-[0.3em] text-white/60 hover:text-white transition-colors"
+                >
+                  GitHub
+                </a>
+              </div>
+              <div className="border border-white/10 p-6">
+                <p className="text-white font-bold text-sm tracking-wide">Adarsh Shrivastava</p>
+                <p className="text-indigo-500/70 text-[10px] uppercase tracking-widest font-bold">Co-Founder</p>
+                <p className="text-white/60 text-sm font-light mt-3">
+                  Builds dependable web experiences with an eye on performance, UX, and real-world delivery.
+                </p>
+                <a
+                  href="https://github.com/AdarshKumarSr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 text-[10px] uppercase tracking-[0.3em] text-white/60 hover:text-white transition-colors"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

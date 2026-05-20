@@ -23,15 +23,15 @@ const ServicesSection = () => {
     },
     {
       icon: <Smartphone className="h-6 w-6" />,
-      title: "Native Apps",
+      title: "Cross-Platform Apps",
       description:
-        "Seamless mobile experiences that leverage the full potential of iOS and Android.",
+        "React Native and responsive PWAs that run smoothly across iOS and Android devices.",
     },
     {
       icon: <Globe className="h-6 w-6" />,
-      title: "Cloud Architecture",
+      title: "Deployment & DevOps",
       description:
-        "Scalable, resilient infrastructure designed for modern traffic and high availability.",
+        "Vercel, Render, Railway, MongoDB Atlas, and CI/CD setup for reliable shipping.",
     },
   ];
 
@@ -48,7 +48,9 @@ const ServicesSection = () => {
             </h3>
           </div>
           <p className="text-white/40 max-w-sm text-sm font-light">
-            We don&apos;t just build features. We architect digital systems that empower your vision and define your industry.
+            Based in Delhi, India, we deliver full-stack website development,
+            landing pages, and product builds for founders who need a real
+            working product.
           </p>
         </div>
 

@@ -1,5 +1,6 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Bricolage_Grotesque, Syne } from "next/font/google";
 import "./globals.css";
 
@@ -14,20 +15,19 @@ const syne = Syne({
 });
 
 // Prefer using a canonical site URL if provided; fallback to production URL
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://soberdevS.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "SoberDev",
   title: {
-    default: "SoberDev - Digital Agency",
+    default: "SoberDev - Web Development Studio in Delhi, India",
     template: "%s | SoberDev",
   },
   description:
-    "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities. Modern web development, UI/UX design, and digital strategy.",
+    "SoberDev is a two-person web development studio in Delhi, India. We build fast landing pages, full-stack web apps, and cross-platform products for startups and small businesses.",
   keywords:
-    "soberdev, better experiences, web development, UI/UX design, digital agency, mobile apps, digital strategy, frontend, backend, product design, SaaS, React, Next.js, TypeScript, Tailwind CSS, accessibility, performance optimization, PWA, e-commerce, API development, cloud, DevOps, prototyping, user research, SEO, content strategy, branding, animation, serverless, headless CMS, GraphQL, Node.js, JavaScript, HTML, CSS",
+    "SoberDev, web developer in Delhi, website development in Delhi, full stack developer Delhi, web development India, landing page development, full stack web apps, React developer, Next.js developer, TypeScript, Tailwind CSS, MERN stack, cross-platform apps, Android app development, deployment and DevOps, SoberDev Delhi, Sahil Bajaj, Adarsh Shrivastava",
   authors: [{ name: "SoberDev" }],
   category: "technology",
   referrer: "origin-when-cross-origin",
@@ -37,20 +37,20 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "SoberDev - Digital Agency",
+    title: "SoberDev - Web Development Studio in Delhi, India",
     description:
-      "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities.",
+      "Two-person studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
     type: "website",
-    url: "/",
+    url: SITE_URL,
     siteName: "SoberDev",
-    images: ["/soberdev.jpg"],
+    images: [new URL("/soberdev.jpg", SITE_URL).toString()],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SoberDev - Digital Agency",
+    title: "SoberDev - Web Development Studio in Delhi, India",
     description:
-      "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities.",
-    images: ["/soberdev.jpg"],
+      "Two-person studio in Delhi building landing pages, full-stack web apps, and cross-platform products.",
+    images: [new URL("/soberdev.jpg", SITE_URL).toString()],
   },
   icons: {
     icon: "/favicon.ico",
@@ -71,16 +71,37 @@ export default function RootLayout({
       <body className={`${bricolage.variable} ${syne.variable} font-sans antialiased bg-black`}>
         <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] noise" />
         {children}
-        {/* Basic JSON-LD for Organization */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HNCS82NBHQ"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HNCS82NBHQ');`}
+        </Script>
+        {/* Basic JSON-LD for Professional Service */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "ProfessionalService",
               name: "SoberDev",
               url: SITE_URL,
               logo: new URL("/soberdev.jpg", SITE_URL).toString(),
+              image: new URL("/soberdev.jpg", SITE_URL).toString(),
+              email: "devssober@gmail.com",
+              telephone: "+91 9811058531",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Delhi",
+                addressRegion: "Delhi",
+                addressCountry: "IN",
+              },
+              areaServed: ["Delhi", "India"],
+              sameAs: ["https://github.com/sahilbajaj2004", "https://github.com/AdarshKumarSr"],
             }),
           }}
         />

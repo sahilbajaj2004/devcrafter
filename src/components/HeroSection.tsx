@@ -30,7 +30,7 @@ const HeroSection = () => {
           className="inline-block mb-6 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-sm"
         >
           <span className="text-sm font-medium text-indigo-300 tracking-wider uppercase">
-            Crafting the Future of Digital
+            Web Development Studio in Delhi, India
           </span>
         </motion.div>
 
@@ -49,8 +49,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          We engineer distinctive digital experiences that push boundaries. 
-          Where precision meets raw creativity.
+          We build fast, well-designed web products for startups and small
+          businesses, from landing pages to full-stack apps.
         </motion.p>
 
         <motion.div
