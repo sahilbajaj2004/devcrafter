@@ -30,7 +30,7 @@ const HeroSection = () => {
           className="inline-block mb-6 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-sm"
         >
           <span className="text-sm font-medium text-indigo-300 tracking-wider uppercase">
-            Crafting the Future of Digital
+            Web Development Studio in Delhi, India
           </span>
         </motion.div>
 

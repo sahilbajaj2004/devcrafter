@@ -48,7 +48,9 @@ const ServicesSection = () => {
             </h3>
           </div>
           <p className="text-white/40 max-w-sm text-sm font-light">
-            We don&apos;t just build features. We architect digital systems that empower your vision and define your industry.
+            Based in Delhi, India, we deliver full-stack website development,
+            landing pages, and product builds for founders who need a real
+            working product.
           </p>
         </div>
 

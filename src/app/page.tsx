@@ -5,6 +5,7 @@ import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FaqSection from "@/components/FaqSection";
 
 export default function SoberDevWebsite() {
   return (
@@ -15,6 +16,7 @@ export default function SoberDevWebsite() {
       <ServicesSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <FaqSection />
       <ContactSection />
     </div>
   );

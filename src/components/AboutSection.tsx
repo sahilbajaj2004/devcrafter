@@ -33,7 +33,8 @@ const AboutSection = () => (
           <p className="text-lg text-white/50 font-light leading-relaxed">
             You get a working product, not a design that never ships. We handle
             design, development, and deployment end to end with direct
-            communication and zero agency fluff.
+            communication and zero agency fluff. If you need a web developer in
+            Delhi or a partner for website development in Delhi, we can help.
           </p>
           
           <div className="pt-4">
