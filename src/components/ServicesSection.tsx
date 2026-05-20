@@ -5,13 +5,7 @@ import {
   Palette,
   Smartphone,
   Globe,
-  Database,
-  Cloud,
-  ShieldCheck,
-  Rocket,
 } from "lucide-react";
-import ParticleBackground from "./backgrounds/ParticleBackground";
-import { Card, CardContent } from "@/components/ui/card";
 
 const ServicesSection = () => {
   const services = [
@@ -54,7 +48,7 @@ const ServicesSection = () => {
             </h3>
           </div>
           <p className="text-white/40 max-w-sm text-sm font-light">
-            We don't just build features. We architect digital systems that empower your vision and define your industry.
+            We don&apos;t just build features. We architect digital systems that empower your vision and define your industry.
           </p>
         </div>
 

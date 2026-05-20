@@ -1,16 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
-  Phone,
-  MapPin,
   Github,
-  Twitter,
   Linkedin,
-  ChevronDown,
 } from "lucide-react";
-import ParticleBackground from "./backgrounds/ParticleBackground";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -90,7 +84,7 @@ export default function Contact() {
             </h3>
           </div>
           <div className="space-y-4 text-right">
-            <p className="text-white/40 text-sm font-light uppercase tracking-widest">Available for new projects</p>
+            <p className="text-white/60 text-sm font-light uppercase tracking-widest">Available for new projects</p>
             <div className="flex justify-end gap-6">
               <a href="mailto:soberdev.help@gmail.com" className="text-white hover:text-indigo-500 transition-colors">
                 <Mail className="h-6 w-6" />
@@ -109,7 +103,7 @@ export default function Contact() {
           <div className="space-y-12">
             <div className="group cursor-default">
               <h4 className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-2 group-hover:text-indigo-500 transition-colors">Direct Mail</h4>
-              <p className="text-2xl text-white font-light">soberdev.help@gmail.com</p>
+              <p className="text-2xl text-white font-light">devssober@gmail.com</p>
             </div>
             <div className="group cursor-default">
               <h4 className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-2 group-hover:text-indigo-500 transition-colors">Inquiries</h4>
@@ -130,7 +124,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="FIRST NAME"
                   required
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-xs"
+                  className="w-full bg-transparent border-b border-white/30 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-[11px]"
                 />
               </div>
               <div className="relative group">
@@ -140,7 +134,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="LAST NAME"
                   required
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-xs"
+                  className="w-full bg-transparent border-b border-white/30 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-[11px]"
                 />
               </div>
             </div>
@@ -152,7 +146,7 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="EMAIL ADDRESS"
               required
-              className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-xs"
+              className="w-full bg-transparent border-b border-white/30 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-[11px]"
             />
 
             <textarea
@@ -162,13 +156,13 @@ export default function Contact() {
               placeholder="TELL US ABOUT YOUR PROJECT"
               rows={4}
               required
-              className="w-full bg-transparent border-b border-white/20 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-xs resize-none"
+              className="w-full bg-transparent border-b border-white/30 py-4 text-white placeholder:text-white/50 focus:outline-none focus:border-indigo-500 transition-colors font-display font-bold tracking-widest text-[11px] resize-none"
             />
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-6 bg-white text-black font-display font-bold tracking-[0.2em] text-xs hover:bg-indigo-500 hover:text-white transition-all duration-500"
+              className="w-full py-6 bg-white text-black font-display font-bold tracking-[0.2em] text-[11px] hover:bg-indigo-500 hover:text-white transition-all duration-500"
             >
               {loading ? "SENDING..." : "DISPATCH MESSAGE"}
             </button>
@@ -180,13 +174,13 @@ export default function Contact() {
         </div>
 
         <footer className="mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase">
+          <div className="text-[10px] font-bold tracking-[0.3em] text-white/50 uppercase">
             © {currentYear} SOBERDEV DIGITAL INC.
           </div>
           <div className="flex gap-8">
-            <a href="#" className="text-[10px] font-bold tracking-[0.3em] text-white/20 hover:text-white transition-colors">TWITTER</a>
-            <a href="#" className="text-[10px] font-bold tracking-[0.3em] text-white/20 hover:text-white transition-colors">LINKEDIN</a>
-            <a href="#" className="text-[10px] font-bold tracking-[0.3em] text-white/20 hover:text-white transition-colors">DRIBBBLE</a>
+            <a href="#" className="text-[10px] font-bold tracking-[0.3em] text-white/50 hover:text-white transition-colors">TWITTER</a>
+            <a href="#" className="text-[10px] font-bold tracking-[0.3em] text-white/50 hover:text-white transition-colors">LINKEDIN</a>
+            <a href="#" className="text-[10px] font-bold tracking-[0.3em] text-white/50 hover:text-white transition-colors">DRIBBBLE</a>
           </div>
         </footer>
       </div>
