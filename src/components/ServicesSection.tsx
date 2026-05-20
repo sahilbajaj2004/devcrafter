@@ -23,15 +23,15 @@ const ServicesSection = () => {
     },
     {
       icon: <Smartphone className="h-6 w-6" />,
-      title: "Native Apps",
+      title: "Cross-Platform Apps",
       description:
-        "Seamless mobile experiences that leverage the full potential of iOS and Android.",
+        "React Native and responsive PWAs that run smoothly across iOS and Android devices.",
     },
     {
       icon: <Globe className="h-6 w-6" />,
-      title: "Cloud Architecture",
+      title: "Deployment & DevOps",
       description:
-        "Scalable, resilient infrastructure designed for modern traffic and high availability.",
+        "Vercel, Render, Railway, MongoDB Atlas, and CI/CD setup for reliable shipping.",
     },
   ];
 

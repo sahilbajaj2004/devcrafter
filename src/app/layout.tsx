@@ -14,8 +14,7 @@ const syne = Syne({
 });
 
 // Prefer using a canonical site URL if provided; fallback to production URL
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://soberdevS.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -41,16 +40,16 @@ export const metadata: Metadata = {
     description:
       "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities.",
     type: "website",
-    url: "/",
+    url: SITE_URL,
     siteName: "SoberDev",
-    images: ["/soberdev.jpg"],
+    images: [new URL("/soberdev.jpg", SITE_URL).toString()],
   },
   twitter: {
     card: "summary_large_image",
     title: "SoberDev - Digital Agency",
     description:
       "SoberDev — crafting better digital experiences that push boundaries and redefine possibilities.",
-    images: ["/soberdev.jpg"],
+    images: [new URL("/soberdev.jpg", SITE_URL).toString()],
   },
   icons: {
     icon: "/favicon.ico",

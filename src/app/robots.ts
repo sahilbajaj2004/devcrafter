@@ -1,8 +1,7 @@
-import type { MetadataRoute } from "next";
+8zx opiop[]\mport type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://soberdev.in";
 
   return {
     rules: {
@@ -11,4 +10,4 @@ export default function robots(): MetadataRoute.Robots {
     },
     sitemap: `${siteUrl.replace(/\/$/, "")}/sitemap.xml`,
   };
-}
+}-ol,q

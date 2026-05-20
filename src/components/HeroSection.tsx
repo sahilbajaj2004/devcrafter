@@ -49,8 +49,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          We engineer distinctive digital experiences that push boundaries. 
-          Where precision meets raw creativity.
+          We build fast, well-designed web products for startups and small
+          businesses, from landing pages to full-stack apps.
         </motion.p>
 
         <motion.div
