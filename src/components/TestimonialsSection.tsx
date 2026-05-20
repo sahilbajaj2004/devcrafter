@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import ParticleBackground from "./backgrounds/ParticleBackground";
+import { Quote } from "lucide-react";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -30,8 +28,6 @@ const TestimonialsSection = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   return (
     <section id="testimonials" className="relative py-32 bg-black overflow-hidden noise">
       <div className="container mx-auto px-4 relative z-10">
@@ -56,12 +52,12 @@ const TestimonialsSection = () => {
             >
               <Quote className="text-indigo-500 h-8 w-8 mb-8 opacity-40 group-hover:opacity-100 transition-opacity" />
               <p className="text-lg text-white/80 font-light leading-relaxed mb-10">
-                "{t.content}"
+                &quot;{t.content}&quot;
               </p>
               
               <div className="flex items-center gap-4 border-t border-white/10 pt-8">
-                <div className="w-12 h-12 rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                  <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                <div className="w-12 h-12 rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 relative">
+                  <Image src={t.image} alt={t.name} fill className="object-cover" />
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-sm tracking-wide">{t.name}</h4>

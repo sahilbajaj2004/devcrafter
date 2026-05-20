@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import GridBackground from "./backgrounds/GridBackground";
 
 const AboutSection = () => (
   <section id="about" className="relative py-32 bg-black overflow-hidden noise">

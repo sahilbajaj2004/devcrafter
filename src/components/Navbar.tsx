@@ -55,9 +55,9 @@ const Navbar = () => {
   return (
     <>
       {/* Full-width wrapper for perfect centering */}
-      <div className="fixed top-6 inset-x-0 z-50 px-4 flex justify-center pointer-events-none">
+      <div className="fixed top-4 inset-x-0 z-50 px-4 flex justify-center pointer-events-none">
         <motion.nav
-          className="w-full max-w-6xl glass rounded-full px-6 py-3 pointer-events-auto"
+          className="w-full max-w-6xl glass rounded-full px-4 sm:px-6 py-2 sm:py-3 pointer-events-auto"
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -65,7 +65,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <motion.div
-              className="text-lg md:text-xl font-display font-bold text-white tracking-tighter cursor-pointer flex-shrink-0"
+              className="text-base md:text-lg font-display font-bold text-white tracking-tighter cursor-pointer flex-shrink-0"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               whileHover={{ scale: 1.05 }}
             >
@@ -89,9 +89,9 @@ const Navbar = () => {
             <div className="flex items-center gap-4 flex-shrink-0">
               <Button
                 onClick={() => handleScrollTo("contact")}
-                className="bg-white text-black hover:bg-indigo-500 hover:text-white rounded-full px-5 md:px-8 py-2 md:py-6 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 h-auto"
+                className="bg-white text-black hover:bg-indigo-500 hover:text-white rounded-full px-4 md:px-7 py-2 md:py-3 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 h-auto"
               >
-                LET'S TALK
+                LET&apos;S TALK
               </Button>
 
               {/* Mobile Toggle */}

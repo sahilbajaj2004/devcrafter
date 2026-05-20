@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import GridBackground from "./backgrounds/GridBackground";
 import ParticleBackground from "./backgrounds/ParticleBackground";
-import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   const { scrollY } = useScroll();
@@ -74,7 +73,7 @@ const HeroSection = () => {
             asChild
             variant="outline"
             size="lg"
-            className="border-white/20 text-white hover:bg-white/5 rounded-none px-12 py-8 text-lg font-bold"
+            className="border-white/20 bg-transparent text-white hover:bg-white/5 hover:text-white hover:border-white/40 rounded-none px-12 py-8 text-lg font-bold"
           >
             <a href="#projects">VIEW WORK</a>
           </Button>

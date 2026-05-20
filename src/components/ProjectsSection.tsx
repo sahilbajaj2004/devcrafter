@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import GridBackground from "./backgrounds/GridBackground";
+import Image from "next/image";
 
 const ProjectsSection = () => {
   const projects = [
@@ -19,11 +19,11 @@ const ProjectsSection = () => {
       link: "https://www.sahilbajaj.me/",
     },
     {
-      title: "IME COLLEGE",
+      title: "AlgoAnalyer",
       tag: "EDUCATION PLATFORM",
       description: "Seamless navigation for the next generation.",
-      image: "/ime.png",
-      link: "https://imesahibabad.ac.in/",
+      image: "/algo.png",
+      link: "https://algo-analyzer.vercel.app/",
     },
     {
       title: "BURROW AI",
@@ -92,9 +92,11 @@ const ProjectsSection = () => {
 
               {/* Hover Image Reveal */}
               <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-64 h-40 opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none scale-90 group-hover:scale-100 rotate-3 group-hover:rotate-0 hidden lg:block">
-                <img 
+                <Image 
                   src={project.image} 
                   alt={project.title}
+                  width={256}
+                  height={160}
                   className="w-full h-full object-cover rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
