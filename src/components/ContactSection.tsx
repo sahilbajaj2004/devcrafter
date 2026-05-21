@@ -101,17 +101,34 @@ export default function Contact() {
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div className="space-y-12">
-            <div className="group cursor-default">
+            <div className="group">
               <h4 className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-2 group-hover:text-indigo-500 transition-colors">Direct Mail</h4>
-              <p className="text-2xl text-white font-light">devssober@gmail.com</p>
+              <a
+                href="mailto:devssober@gmail.com"
+                className="text-2xl text-white font-light hover:text-indigo-400 transition-colors"
+              >
+                devssober@gmail.com
+              </a>
             </div>
-            <div className="group cursor-default">
+            <div className="group">
               <h4 className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-2 group-hover:text-indigo-500 transition-colors">Inquiries</h4>
-              <p className="text-2xl text-white font-light">+91 9811058531</p>
+              <a
+                href="tel:+919811058531"
+                className="text-2xl text-white font-light hover:text-indigo-400 transition-colors"
+              >
+                +91 9811058531
+              </a>
             </div>
             <div className="group cursor-default">
               <h4 className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-2 group-hover:text-indigo-500 transition-colors">Location</h4>
-              <p className="text-2xl text-white font-light">DELHI, INDIA</p>
+              <a
+                href="https://maps.app.goo.gl/D67JebTSFPXe7iPN7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl text-white font-light hover:text-indigo-400 transition-colors"
+              >
+                Delhi, India
+              </a>
             </div>
             <div className="group cursor-default">
               <h4 className="text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold mb-2 group-hover:text-indigo-500 transition-colors">Pricing</h4>
