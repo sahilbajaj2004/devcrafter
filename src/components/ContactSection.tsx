@@ -186,6 +186,20 @@ export default function Contact() {
           <div className="text-[10px] font-bold tracking-[0.3em] text-white/50 uppercase">
             © {currentYear} SoberDev
           </div>
+          {/* <div className="text-[10px] font-bold tracking-[0.2em] text-white/40 uppercase flex gap-4">
+            <a
+              href="/robots.txt"
+              className="hover:text-white transition-colors"
+            >
+              robots.txt
+            </a>
+            <a
+              href="/sitemap.xml"
+              className="hover:text-white transition-colors"
+            >
+              sitemap.xml
+            </a>
+          </div> */}
         </footer>
       </div>
     </section>

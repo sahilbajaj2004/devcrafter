@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "SoberDev is a two-person web development studio in Delhi, India. We build fast landing pages, full-stack web apps, and cross-platform products for startups and small businesses.",
   keywords:
-    "SoberDev, web developer in Delhi, website development in Delhi, full stack developer Delhi, web development India, landing page development, full stack web apps, React developer, Next.js developer, TypeScript, Tailwind CSS, MERN stack, cross-platform apps, Android app development, deployment and DevOps, SoberDev Delhi, Sahil Bajaj, Adarsh Shrivastava",
+    "SoberDev, sober dev, sober, SoberDev agency, web development agency, software development agency, digital product studio, web developer in Delhi, website development in Delhi, full stack developer Delhi, web development India, landing page development, full stack web apps, SaaS development, MVP development, startup product development, React developer, Next.js developer, TypeScript, Tailwind CSS, MERN stack, Node.js development, API development, database design, backend developer Delhi, frontend developer Delhi, web application development, custom website development, ecommerce development, Shopify development, CMS development, headless CMS, UI/UX design, product design studio, web design Delhi, responsive web design, performance optimization, SEO services, DevOps services, cloud deployment, Vercel deployment, AWS deployment, cross-platform apps, Android app development, iOS app development, mobile app development, progressive web app, PWA development, SoberDev Delhi, Sahil Bajaj, Adarsh Shrivastava",
   authors: [{ name: "SoberDev" }],
   category: "technology",
   referrer: "origin-when-cross-origin",
