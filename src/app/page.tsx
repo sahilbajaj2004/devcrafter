@@ -6,12 +6,10 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FaqSection from "@/components/FaqSection";
-import Ribbons from "@/components/ui/RibbonsCursor";
 
 export default function SoberDevWebsite() {
   return (
     <>
-    <Ribbons/>
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
