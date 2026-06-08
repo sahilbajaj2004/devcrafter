@@ -29,6 +29,14 @@ const ProjectsSection = () => {
       link: "https://algo-analyzer.vercel.app/",
     },
     {
+      title: "Dhruv portfolio",
+      tag: "portfolio",
+      description:
+        "Portfolio site to showcase full-stack work, resume, and contact flow. Optimized for fast load and clear hiring visibility. Stack: React, Tailwind CSS.",
+      image: "/dhruv.png",
+      link: "https://dhruvsharmadev.vercel.app/",
+    },
+    {
       title: "BURROW AI",
       tag: "E-COMMERCE / AI",
       description:

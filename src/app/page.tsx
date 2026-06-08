@@ -9,6 +9,7 @@ import FaqSection from "@/components/FaqSection";
 
 export default function SoberDevWebsite() {
   return (
+    <>
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
@@ -19,5 +20,6 @@ export default function SoberDevWebsite() {
       <FaqSection />
       <ContactSection />
     </div>
+    </>
   );
 }
