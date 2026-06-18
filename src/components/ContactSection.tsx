@@ -30,7 +30,7 @@ export default function ContactSection() {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ access_key: "b439ca96-e064-42f2-819b-2f0ac2fd54a9", ...form }),
+        body: JSON.stringify({ access_key: "feffeed8-7275-441a-a55a-b6bca2e1e324", ...form }),
       });
       const result = await res.json();
       if (result.success) {
