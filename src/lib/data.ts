@@ -43,6 +43,7 @@ export const STATS: Stat[] = [
 ];
 
 export const MARQUEE = [
+  "Web Platforms", "Experience Design", "Cross-Platform Apps", "Deploy & DevOps",
   "JavaScript", "TypeScript", "Python", "React", "Next.js", "Node.js",
   "Express", "MongoDB", "MySQL", "Firebase", "Django", "Socket.io",
   "Tailwind", "Docker", "AWS", "GSAP",
