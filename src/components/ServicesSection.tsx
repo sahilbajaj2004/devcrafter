@@ -1,86 +1,55 @@
 "use client";
+
 import { motion } from "framer-motion";
-import {
-  Code,
-  Palette,
-  Smartphone,
-  Globe,
-} from "lucide-react";
+import { SERVICES } from "@/lib/data";
+import { Reveal } from "@/components/ui/Reveal";
 
-const ServicesSection = () => {
-  const services = [
-    {
-      icon: <Code className="h-6 w-6" />,
-      title: "Web Platforms",
-      description:
-        "High-performance digital products built with React, Next.js, and cutting-edge engineering.",
-    },
-    {
-      icon: <Palette className="h-6 w-6" />,
-      title: "Experience Design",
-      description:
-        "Distinctive UI/UX that prioritizes character, motion, and emotional connection.",
-    },
-    {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "Cross-Platform Apps",
-      description:
-        "React Native and responsive PWAs that run smoothly across iOS and Android devices.",
-    },
-    {
-      icon: <Globe className="h-6 w-6" />,
-      title: "Deployment & DevOps",
-      description:
-        "Vercel, Render, Railway, MongoDB Atlas, and CI/CD setup for reliable shipping.",
-    },
-  ];
-
+export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-32 bg-black overflow-hidden noise">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-          <div className="max-w-2xl">
-            <h2 className="text-sm uppercase tracking-[0.3em] text-indigo-500 font-bold mb-4">
-              Capabilities
-            </h2>
-            <h3 className="text-5xl md:text-7xl font-display font-bold text-white leading-[0.9]">
-              SOLUTIONS THAT <br /> SCALE REALITY.
-            </h3>
+    <section id="services" className="relative py-28 md:py-40 bg-black overflow-hidden noise">
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-28">
+              <Reveal>
+                <h2 className="text-4xl md:text-6xl font-display font-bold text-white leading-[0.95] tracking-tighter">
+                  What we<br />
+                  <span className="text-indigo-500">do.</span>
+                </h2>
+                <p className="mt-6 max-w-xs text-white/45 text-sm font-light leading-relaxed">
+                  Based in Delhi, building full-stack products, landing pages, and tools for founders
+                  who need something real, shipped.
+                </p>
+              </Reveal>
+            </div>
           </div>
-          <p className="text-white/40 max-w-sm text-sm font-light">
-            Based in Delhi, India, we deliver full-stack website development,
-            landing pages, and product builds for founders who need a real
-            working product.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-white/10">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group p-8 border-b md:border-r border-white/10 hover:bg-white/[0.02] transition-colors relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-indigo-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              
-              <div className="text-white mb-8 group-hover:text-indigo-500 transition-colors duration-500">
-                {service.icon}
-              </div>
-              <h4 className="text-2xl font-display font-bold text-white mb-4">
-                {service.title}
-              </h4>
-              <p className="text-white/50 font-light text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-500">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
+          <div className="lg:col-span-8 border-t border-white/10">
+            {SERVICES.map((s, i) => (
+              <Reveal key={s.no} delay={i * 0.06}>
+                <motion.div
+                  whileHover="hover"
+                  className="group relative grid grid-cols-12 items-baseline gap-4 border-b border-white/10 py-9 md:py-11"
+                >
+                  <motion.span
+                    variants={{ hover: { width: "100%" } }}
+                    initial={{ width: 0 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="pointer-events-none absolute left-0 top-0 h-px bg-indigo-500"
+                  />
+                  <span className="col-span-2 font-mono text-xs text-white/30 pt-2">{s.no}</span>
+                  <h3 className="col-span-10 md:col-span-5 text-2xl md:text-4xl font-display font-bold text-white transition-colors duration-500 group-hover:text-indigo-400">
+                    {s.title}
+                  </h3>
+                  <p className="col-span-12 md:col-span-5 text-white/45 text-sm font-light leading-relaxed mt-3 md:mt-0 md:pl-4 transition-colors duration-500 group-hover:text-white/70">
+                    {s.description}
+                  </p>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default ServicesSection;
+}

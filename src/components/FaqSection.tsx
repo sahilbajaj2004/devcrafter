@@ -1,89 +1,84 @@
 "use client";
-import { motion } from "framer-motion";
 
-const faqs = [
-  {
-    question: "What services do you offer?",
-    answer:
-      "Full-stack website development, landing pages, MVPs, and cross-platform apps. We also handle deployment and CI/CD for smooth launches.",
-  },
-  {
-    question: "Do you work with clients in Delhi and across India?",
-    answer:
-      "Yes. We are based in Delhi and work with startups and small businesses across India and internationally.",
-  },
-  {
-    question: "How much does a website cost?",
-    answer:
-      "Landing pages start at INR 12,000, portfolios at INR 8,000, and full-stack web apps start at INR 35,000. Final pricing depends on scope.",
-  },
-  {
-    question: "Can you build Android apps?",
-    answer:
-      "We build cross-platform mobile apps using React Native and responsive PWAs, which run smoothly on Android and iOS.",
-  },
-  {
-    question: "How long does a typical project take?",
-    answer:
-      "Landing pages usually take 1-2 weeks, while full-stack apps typically take 4-8 weeks depending on complexity.",
-  },
-  {
-    question: "What is your process?",
-    answer:
-      "Discovery, design direction, build, and deployment. You work directly with the founders and get weekly updates.",
-  },
-];
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
+import { FAQS } from "@/lib/data";
+import { Reveal } from "@/components/ui/Reveal";
 
-const FaqSection = () => (
-  <section id="faq" className="relative py-32 bg-black overflow-hidden noise">
-    <div className="container mx-auto px-4 relative z-10">
-      <div className="max-w-4xl mx-auto text-center mb-24">
-        <h2 className="text-sm uppercase tracking-[0.3em] text-indigo-500 font-bold mb-4">
-          FAQ
-        </h2>
-        <h3 className="text-5xl md:text-7xl font-display font-bold text-white leading-[0.9]">
-          ANSWERS <br /> <span className="text-white/20">YOU NEED.</span>
-        </h3>
+export default function FaqSection() {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <section id="faq" className="relative py-28 md:py-40 bg-black overflow-hidden noise">
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <Reveal>
+              <h2 className="lg:sticky lg:top-28 text-4xl md:text-6xl font-display font-bold text-white leading-[0.95] tracking-tighter">
+                Questions,<br />
+                <span className="text-indigo-500">answered.</span>
+              </h2>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-8 border-t border-white/10">
+            {FAQS.map((faq, i) => {
+              const isOpen = open === i;
+              return (
+                <div key={faq.question} className="border-b border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="flex w-full items-center justify-between gap-6 py-7 text-left"
+                  >
+                    <span className="text-lg md:text-2xl font-display font-bold text-white">
+                      {faq.question}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className={`shrink-0 ${isOpen ? "text-indigo-400" : "text-white/40"}`}
+                    >
+                      <Plus className="h-6 w-6" />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-7 pr-10 text-white/55 text-base font-light leading-relaxed max-w-2xl">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      <div className="max-w-4xl mx-auto space-y-6">
-        {faqs.map((faq, index) => (
-          <motion.div
-            key={faq.question}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.05 }}
-            viewport={{ once: true }}
-            className="border border-white/10 p-6 md:p-8 hover:bg-white/[0.03] transition-colors"
-          >
-            <h4 className="text-white font-display font-bold text-lg md:text-xl">
-              {faq.question}
-            </h4>
-            <p className="text-white/60 text-sm md:text-base font-light leading-relaxed mt-3">
-              {faq.answer}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqs.map((faq) => ({
-            "@type": "Question",
-            name: faq.question,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: faq.answer,
-            },
-          })),
-        }),
-      }}
-    />
-  </section>
-);
-
-export default FaqSection;
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          }),
+        }}
+      />
+    </section>
+  );
+}

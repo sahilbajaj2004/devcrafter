@@ -1,8 +1,10 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Bricolage_Grotesque, Syne } from "next/font/google";
+import { Bricolage_Grotesque, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/providers/SmoothScroll";
+import Preloader from "@/components/Preloader";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -12,6 +14,11 @@ const bricolage = Bricolage_Grotesque({
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
 });
 
 // Prefer using a canonical site URL if provided; fallback to production URL
@@ -68,9 +75,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${bricolage.variable} ${syne.variable} font-sans antialiased bg-black`}>
+      <body className={`${bricolage.variable} ${syne.variable} ${jetbrains.variable} font-sans antialiased bg-black`}>
         <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] noise" />
-        {children}
+        <Preloader />
+        <SmoothScroll>{children}</SmoothScroll>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HNCS82NBHQ"
           strategy="afterInteractive"
