@@ -5,6 +5,7 @@ import { Bricolage_Grotesque, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import Preloader from "@/components/Preloader";
+import Cursor from "@/components/Cursor";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -78,6 +79,7 @@ export default function RootLayout({
       <body className={`${bricolage.variable} ${syne.variable} ${jetbrains.variable} font-sans antialiased bg-black`}>
         <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] noise" />
         <Preloader />
+        <Cursor />
         <SmoothScroll>{children}</SmoothScroll>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HNCS82NBHQ"

@@ -129,6 +129,20 @@ html::-webkit-scrollbar {
   }
 }
 
+/* Custom cursor: hide native pointer on fine-pointer devices only */
+@media (pointer: fine) {
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none;
+  }
+  /* keep a real caret in text fields for usability */
+  .has-custom-cursor input,
+  .has-custom-cursor textarea,
+  .has-custom-cursor select {
+    cursor: text;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
