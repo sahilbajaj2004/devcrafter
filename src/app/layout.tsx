@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Bricolage_Grotesque, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import ScrollReset from "@/components/providers/ScrollReset";
 import Preloader from "@/components/Preloader";
 import Cursor from "@/components/Cursor";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
         <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] noise" />
         <Preloader />
         <Cursor />
+        <ScrollReset />
         <SmoothScroll>{children}</SmoothScroll>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HNCS82NBHQ"

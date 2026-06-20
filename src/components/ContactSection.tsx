@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SITE, PRICING } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
+import SiteFooter from "@/components/SiteFooter";
 
 const FIELD =
   "w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-indigo-500 transition-colors text-sm";
@@ -15,9 +16,6 @@ export default function ContactSection() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "ok" | "err">("idle");
   const [loading, setLoading] = useState(false);
-  const [year, setYear] = useState<number | null>(null);
-
-  useEffect(() => setYear(new Date().getFullYear()), []);
 
   const onChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -144,50 +142,9 @@ export default function ContactSection() {
           </form>
         </div>
 
-        <footer className="mt-28 py-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">
-            © {year ?? ""} SoberDev
-          </span>
-          <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
-            <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-              <Link
-                href="/privacy-policy"
-                className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-indigo-400"
-              >
-                Privacy
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-indigo-400"
-              >
-                Terms
-              </Link>
-              <Link
-                href="/refund-policy"
-                className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-indigo-400"
-              >
-                Refunds
-              </Link>
-            </nav>
-            <div className="flex items-center gap-6">
-              {SITE.socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/50 hover:text-indigo-400 transition-colors"
-                  aria-label={s.label}
-                >
-                  {s.label === "GitHub" && <Github className="h-5 w-5" />}
-                  {s.label === "LinkedIn" && <Linkedin className="h-5 w-5" />}
-                  {s.label === "Email" && <Mail className="h-5 w-5" />}
-                </a>
-              ))}
-            </div>
-          </div>
-        </footer>
       </div>
+
+      <SiteFooter />
     </section>
   );
 }
