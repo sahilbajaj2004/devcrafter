@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { STATS, STUDIO, TEAM } from "@/lib/data";
-import PageShell from "@/components/PageShell";
+import PageShell from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {

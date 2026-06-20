@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SITE, PRICING } from "@/lib/data";
-import PageShell from "@/components/PageShell";
-import ContactForm from "@/components/ContactForm";
+import PageShell from "@/components/layout/PageShell";
+import ContactForm from "@/components/ui/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {

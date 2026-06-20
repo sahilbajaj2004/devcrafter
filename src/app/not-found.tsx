@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import NotFound from "@/components/NotFound";
+import SiteHeader from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import NotFound from "@/components/layout/NotFound";
 
 export const metadata: Metadata = {
   title: "Page not found",

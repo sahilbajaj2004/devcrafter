@@ -1,7 +1,7 @@
 import type React from "react";
 import { Reveal } from "@/components/ui/Reveal";
-import SiteHeader, { type PageKey } from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+import SiteHeader, { type PageKey } from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
 
 /**
  * Shared chrome for the standalone marketing pages. Server component: the shared

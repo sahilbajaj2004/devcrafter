@@ -5,8 +5,8 @@ import { Bricolage_Grotesque, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import ScrollReset from "@/components/providers/ScrollReset";
-import Preloader from "@/components/Preloader";
-import Cursor from "@/components/Cursor";
+import Preloader from "@/components/ui/Preloader";
+import Cursor from "@/components/ui/Cursor";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],

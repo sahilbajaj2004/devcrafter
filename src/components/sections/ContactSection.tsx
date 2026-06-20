@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { SITE, PRICING } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
-import SiteFooter from "@/components/SiteFooter";
+import SiteFooter from "@/components/layout/SiteFooter";
 
 const FIELD =
   "w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-indigo-500 transition-colors text-sm";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PolicyShell, Section } from "@/components/PolicyShell";
+import { PolicyShell, Section } from "@/components/layout/PolicyShell";
 
 export const metadata: Metadata = {
   title: "Refund & Cancellation Policy",
