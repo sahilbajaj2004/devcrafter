@@ -32,7 +32,7 @@ export function PolicyShell({
           className="mb-16 inline-flex items-center gap-2 text-white/50 transition-colors hover:text-indigo-400"
         >
           <ArrowLeft className="h-4 w-4" />
-          <span className={LABEL}>Back to SoberDev</span>
+          <span className={LABEL}>Back to Sober<span className="text-indigo-500">Dev</span></span>
         </Link>
 
         <p className={LABEL}>Legal</p>
@@ -46,7 +46,7 @@ export function PolicyShell({
         <div className="mt-14 space-y-12">{children}</div>
 
         <footer className="mt-24 flex flex-col gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
-          <span className={LABEL}>© SoberDev</span>
+          <span className={LABEL}>© Sober<span className="text-indigo-500">Dev</span></span>
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-3">
             {LEGAL_LINKS.map((l) => (
               <Link

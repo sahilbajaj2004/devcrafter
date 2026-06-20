@@ -35,7 +35,7 @@ export default function SiteFooter() {
               href="/"
               className="font-display text-2xl font-bold tracking-tighter text-white transition-colors hover:text-indigo-400"
             >
-              SoberDev
+              Sober<span className="text-indigo-500">Dev</span>
             </Link>
             <p className="mt-3 text-sm font-light leading-relaxed text-white/45">
               {SITE.tagline} in {SITE.location}. We build products that actually ship.

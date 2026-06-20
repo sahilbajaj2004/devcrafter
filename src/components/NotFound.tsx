@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useGSAP } from "@gsap/react";
@@ -10,6 +10,13 @@ import { gsap } from "gsap";
  * Animated 404 hero. Clean entrance timeline + a slow infinite float on the
  * numerals. Honors prefers-reduced-motion (renders static).
  */
+// Stronger outline than the global .text-stroke so the numerals read clearly at
+// this size; kept local so the homepage hero's .text-stroke stays unchanged.
+const STROKE: CSSProperties = {
+  WebkitTextStroke: "2px rgba(255,255,255,0.55)",
+  color: "transparent",
+};
+
 export default function NotFound() {
   const root = useRef<HTMLDivElement>(null);
 
@@ -37,9 +44,9 @@ export default function NotFound() {
       <div className="flex flex-col items-center">
         <div className="nf-float">
           <h1 className="nf-404 font-display font-bold leading-none tracking-tighter text-[clamp(6rem,26vw,18rem)]">
-            <span className="text-stroke">4</span>
+            <span style={STROKE}>4</span>
             <span className="text-indigo-500">0</span>
-            <span className="text-stroke">4</span>
+            <span style={STROKE}>4</span>
           </h1>
         </div>
 

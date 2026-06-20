@@ -26,7 +26,7 @@ export default function SiteHeader({ active }: { active?: PageKey }) {
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
           <span className="font-display text-base font-bold tracking-tighter text-white">
-            SoberDev
+            Sober<span className="text-indigo-500">Dev</span>
           </span>
         </Link>
         <nav className="flex items-center gap-5 sm:gap-7">
