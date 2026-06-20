@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
 import { SITE, PRICING } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
@@ -119,6 +120,17 @@ export default function ContactSection() {
               </button>
             </Magnetic>
 
+            <p className="text-[10px] leading-relaxed text-white/30">
+              By submitting, you agree to our{" "}
+              <Link
+                href="/privacy-policy"
+                className="text-white/50 underline underline-offset-2 transition-colors hover:text-indigo-400"
+              >
+                Privacy Policy
+              </Link>
+              .
+            </p>
+
             {status === "ok" && (
               <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-indigo-400">
                 Got it. We&apos;ll be in touch shortly.
@@ -136,21 +148,43 @@ export default function ContactSection() {
           <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">
             © {year ?? ""} SoberDev
           </span>
-          <div className="flex items-center gap-6">
-            {SITE.socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/50 hover:text-indigo-400 transition-colors"
-                aria-label={s.label}
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
+            <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              <Link
+                href="/privacy-policy"
+                className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-indigo-400"
               >
-                {s.label === "GitHub" && <Github className="h-5 w-5" />}
-                {s.label === "LinkedIn" && <Linkedin className="h-5 w-5" />}
-                {s.label === "Email" && <Mail className="h-5 w-5" />}
-              </a>
-            ))}
+                Privacy
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-indigo-400"
+              >
+                Terms
+              </Link>
+              <Link
+                href="/refund-policy"
+                className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-indigo-400"
+              >
+                Refunds
+              </Link>
+            </nav>
+            <div className="flex items-center gap-6">
+              {SITE.socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50 hover:text-indigo-400 transition-colors"
+                  aria-label={s.label}
+                >
+                  {s.label === "GitHub" && <Github className="h-5 w-5" />}
+                  {s.label === "LinkedIn" && <Linkedin className="h-5 w-5" />}
+                  {s.label === "Email" && <Mail className="h-5 w-5" />}
+                </a>
+              ))}
+            </div>
           </div>
         </footer>
       </div>
