@@ -62,7 +62,12 @@ export const metadata: Metadata = {
     images: [new URL("/soberdev.jpg", SITE_URL).toString()],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
   },
 };
 
@@ -104,8 +109,8 @@ gtag('config', 'G-HNCS82NBHQ');`}
               url: SITE_URL,
               logo: new URL("/soberdev.jpg", SITE_URL).toString(),
               image: new URL("/soberdev.jpg", SITE_URL).toString(),
-              email: "devssober@gmail.com",
-              telephone: "+91 9811058531",
+              email: "contact@soberdev.in",
+              telephone: "+91 8595105597",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Delhi",
@@ -113,7 +118,7 @@ gtag('config', 'G-HNCS82NBHQ');`}
                 addressCountry: "IN",
               },
               areaServed: ["Delhi", "India"],
-              sameAs: ["https://github.com/sahilbajaj2004", "https://github.com/AdarshKumarSr"],
+              sameAs: ["https://github.com/sahilbajaj2004", "https://github.com/AdarshKumarSr", "https://linkedin.com/company/soberdev"],
             }),
           }}
         />
