@@ -114,7 +114,7 @@ export type Project = {
   featured?: boolean;
 };
 
-const PORTFOLIO = "https://soberdevs.vercel.app/";
+const PORTFOLIO = "https://soberdev.in";
 
 export const PROJECTS: Project[] = [
   {
