@@ -6,14 +6,14 @@ export const SITE = {
   name: "SoberDev",
   tagline: "Web development studio",
   location: "Delhi, India",
-  email: "devssober@gmail.com",
-  phone: "+91 9811058531",
-  phoneHref: "tel:+919811058531",
+  email: "Contact@soberdev.in",
+  phone: "+91 8595105597",
+  phoneHref: "tel:+918595105597",
   maps: "https://maps.app.goo.gl/D67JebTSFPXe7iPN7",
   socials: [
     { label: "GitHub", href: "https://github.com/soberdev" },
     { label: "LinkedIn", href: "https://linkedin.com/in/soberdev" },
-    { label: "Email", href: "mailto:devssober@gmail.com" },
+    { label: "Email", href: "mailto:Contact@soberdev.in" },
   ],
 } as const;
 
