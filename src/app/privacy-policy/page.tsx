@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
     <PolicyShell title="Privacy Policy" updated={UPDATED}>
       <Section title="Who we are">
         <p>
-          SoberDev is a two-person web development studio based in Delhi, India.
+          SoberDev is a two-person software development studio based in Delhi, India.
           This Privacy Policy explains what personal information we collect when
           you use our website (soberdev.in) or contact us, why we collect it, how
           long we keep it, and the rights you have over it.

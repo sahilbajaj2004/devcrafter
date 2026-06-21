@@ -9,7 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "SoberDev is a two-person web development studio in Delhi, India — Sahil Bajaj and Adarsh Shrivastava — building fast, reliable products end to end.",
+    "SoberDev is a two-person software development studio in Delhi, India — Sahil Bajaj and Adarsh Shrivastava — building fast, reliable products end to end.",
   alternates: { canonical: "/about" },
 };
 

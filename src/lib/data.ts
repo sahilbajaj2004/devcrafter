@@ -4,7 +4,7 @@
 
 export const SITE = {
   name: "SoberDev",
-  tagline: "Web development studio",
+  tagline: "Software development studio",
   location: "Delhi, India",
   email: "Contact@soberdev.in",
   phone: "+91 8595105597",
@@ -25,7 +25,7 @@ export const NAV = [
 ] as const;
 
 export const HERO = {
-  kicker: "Web development studio, Delhi",
+  kicker: "Software development studio, Delhi",
   // headline rendered word-by-word for the kinetic reveal
   line1: ["We", "build"],
   line2: ["products", "that"],
