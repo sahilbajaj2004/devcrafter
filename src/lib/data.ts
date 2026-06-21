@@ -59,15 +59,15 @@ export const STUDIO = {
 export const TEAM = [
   {
     name: "Sahil Bajaj",
-    role: "Co-Founder, Full-Stack",
+    role: "Co-Founder, Software Developer",
     bio: "Full-stack developer focused on shipping clean, scalable products for founders and small teams.",
     href: "https://github.com/sahilbajaj2004",
     image: "/assets/founderSahilbajaj.png",
   },
   {
     name: "Adarsh Shrivastava",
-    role: "Co-Founder, Engineering",
-    bio: "Builds dependable web experiences with an eye on performance, UX, and real-world delivery.",
+    role: "Co-Founder, Engineer",
+    bio: "Full-stack developer focused on shipping clean, scalable products for founders and small teams.",
     href: "https://github.com/AdarshKumarSr",
     image: "/assets/founderAdarshShri.jpg",
   },
